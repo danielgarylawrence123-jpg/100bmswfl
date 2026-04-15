@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Programs | 100 Black Men of Southwest Florida</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0A0A0A;
+    --ink-soft: #141414;
+    --ink-card: #1C1C1C;
+    --gold: #D4AF37;
+    --gold-bright: #E8C547;
+    --gold-deep: #A08423;
+    --cream: #F8F5EE;
+    --paper: #FFFFFF;
+    --stone: #6B6B68;
+    --stone-light: #D4D2CC;
+  }
+
+  * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+
+  .display-xl { font-family: 'Archivo Black', sans-serif; letter-spacing: -0.02em; line-height: 0.95; text-transform: uppercase; }
+  .display-lg { font-family: 'Archivo Black', sans-serif; letter-spacing: -0.02em; line-height: 0.95; text-transform: uppercase; }
+  .display-md { font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 0.01em; line-height: 1.05; text-transform: uppercase; }
+  .display-sm { font-family: 'Oswald', sans-serif; font-weight: 600; letter-spacing: 0.02em; text-transform: uppercase; }
+  .eyebrow { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; }
+
+  .gold-rule::after { content: ''; display: block; width: 72px; height: 4px; background: var(--gold); margin: 1.5rem auto 0; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 1rem 2rem; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 0.875rem; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 2px solid transparent; cursor: pointer; white-space: nowrap; }
+  .btn-gold { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+  .btn-gold:hover { background: transparent; color: var(--gold); transform: translateY(-2px); }
+  .btn-ink { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .btn-ink:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); transform: translateY(-2px); }
+  .btn-outline-cream { background: transparent; color: var(--cream); border-color: var(--cream); }
+  .btn-outline-cream:hover { background: var(--cream); color: var(--ink); transform: translateY(-2px); }
+  .btn-outline-ink { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-outline-ink:hover { background: var(--ink); color: var(--cream); transform: translateY(-2px); }
+
+  .photo-placeholder {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2520 40%, #3a3020 100%);
+    position: relative; overflow: hidden;
+  }
+  .photo-placeholder::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 40%, rgba(212, 175, 55, 0.15) 0%, transparent 50%); }
+  .photo-placeholder::after { content: 'PHOTO'; position: absolute; bottom: 0.75rem; right: 0.75rem; font-family: 'Inter', sans-serif; font-size: 0.6rem; letter-spacing: 0.25em; color: rgba(212, 175, 55, 0.35); font-weight: 700; }
+
+  .logo-mark { display: inline-flex; align-items: center; gap: 0.75rem; }
+  .logo-100 { font-family: 'Archivo Black', sans-serif; font-size: 2.25rem; line-height: 1; color: var(--ink); letter-spacing: -0.05em; }
+  .logo-text { font-family: 'Oswald', sans-serif; font-size: 0.625rem; font-weight: 600; line-height: 1.2; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); }
+
+  /* Header with theme support */
+  .announcement { background: var(--ink); color: var(--cream); border-bottom: 1px solid rgba(212, 175, 55, 0.25); }
+  .site-header { position: sticky; top: 0; z-index: 40; background: var(--cream); transition: box-shadow 0.3s ease; overflow: hidden; }
+  .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+  .site-header::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: rgba(212, 175, 55, 0.2); }
+  .header-theme-layer { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1; }
+  .header-inner { position: relative; z-index: 2; }
+
+  /* Theme styles for header */
+  [data-theme="christmas"] .header-snowflake { position: absolute; top: -12px; color: rgba(10, 10, 10, 0.55); animation: headerSnowfall linear infinite; }
+  @keyframes headerSnowfall { 0% { transform: translateY(0) rotate(0deg); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateY(90px) rotate(360deg); opacity: 0; } }
+  [data-theme="christmas"] .site-header { background: linear-gradient(180deg, #f8f5ee 0%, #fdf8ec 100%); }
+  [data-theme="bhm"] .site-header::before { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: linear-gradient(90deg, #DC2626 0%, #DC2626 33.33%, #000 33.33%, #000 66.66%, #16A34A 66.66%, #16A34A 100%); z-index: 3; }
+  [data-theme="bhm"] .site-header::after { display: none; }
+  [data-theme="bhm"] .header-theme-layer { background-image: repeating-linear-gradient(45deg, transparent 0, transparent 40px, rgba(220, 38, 38, 0.04) 40px, rgba(220, 38, 38, 0.04) 42px, transparent 42px, transparent 80px, rgba(22, 163, 74, 0.04) 80px, rgba(22, 163, 74, 0.04) 82px); }
+  [data-theme="juneteenth"] .site-header::before { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: linear-gradient(90deg, #DC2626, #FFFFFF, #1E3A8A, #DC2626, #FFFFFF, #1E3A8A); background-size: 400% 100%; animation: juneteenthFlag 8s linear infinite; z-index: 3; }
+  [data-theme="juneteenth"] .site-header::after { display: none; }
+  @keyframes juneteenthFlag { 0% { background-position: 0% 0%; } 100% { background-position: 400% 0%; } }
+  [data-theme="juneteenth"] .juneteenth-star { position: absolute; color: rgba(220, 38, 38, 0.5); font-size: 0.9rem; animation: twinkle 3s ease-in-out infinite; }
+  @keyframes twinkle { 0%, 100% { opacity: 0.2; transform: scale(0.8); } 50% { opacity: 0.9; transform: scale(1.1); } }
+  [data-theme="mlk"] .site-header { background: linear-gradient(180deg, #f8f5ee 0%, #eef1f8 100%); }
+  [data-theme="mlk"] .site-header::before { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: #1E3A8A; z-index: 3; }
+  [data-theme="mlk"] .site-header::after { display: none; }
+  [data-theme="mlk"] .mlk-dot { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: rgba(30, 58, 138, 0.3); animation: mlkFloat 6s ease-in-out infinite; }
+  @keyframes mlkFloat { 0%, 100% { transform: translateY(0); opacity: 0.4; } 50% { transform: translateY(-10px); opacity: 0.8; } }
+
+  /* Hamburger */
+  .hamburger { width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; background: transparent; border: none; cursor: pointer; position: relative; z-index: 60; }
+  .hamburger-lines { width: 24px; height: 18px; position: relative; }
+  .hamburger-lines span { position: absolute; left: 0; width: 100%; height: 2.5px; background: var(--ink); transition: all 0.3s ease; }
+  .hamburger-lines span:nth-child(1) { top: 0; }
+  .hamburger-lines span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+  .hamburger-lines span:nth-child(3) { bottom: 0; }
+  .hamburger.open span { background: var(--cream); }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  .menu-overlay { position: fixed; inset: 0; background: var(--ink); z-index: 55; transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1); display: flex; align-items: center; justify-content: center; }
+  .menu-overlay.open { transform: translateX(0); }
+  .menu-overlay nav ul { list-style: none; padding: 0; margin: 0; text-align: center; }
+  .menu-overlay nav ul li { overflow: hidden; margin: 0.5rem 0; }
+  .menu-overlay nav ul li a { display: inline-block; font-family: 'Archivo Black', sans-serif; font-size: clamp(2rem, 6vw, 4rem); color: var(--cream); text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.1; transition: color 0.3s ease; transform: translateY(100%); }
+  .menu-overlay.open nav ul li a { animation: menuItemReveal 0.7s cubic-bezier(0.77, 0, 0.175, 1) forwards; }
+  .menu-overlay.open nav ul li:nth-child(1) a { animation-delay: 0.2s; }
+  .menu-overlay.open nav ul li:nth-child(2) a { animation-delay: 0.25s; }
+  .menu-overlay.open nav ul li:nth-child(3) a { animation-delay: 0.3s; }
+  .menu-overlay.open nav ul li:nth-child(4) a { animation-delay: 0.35s; }
+  .menu-overlay.open nav ul li:nth-child(5) a { animation-delay: 0.4s; }
+  .menu-overlay.open nav ul li:nth-child(6) a { animation-delay: 0.45s; }
+  .menu-overlay.open nav ul li:nth-child(7) a { animation-delay: 0.5s; }
+  .menu-overlay.open nav ul li:nth-child(8) a { animation-delay: 0.55s; }
+  @keyframes menuItemReveal { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .menu-overlay nav ul li a:hover { color: var(--gold); }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), transform 0.9s cubic-bezier(0.4, 0, 0.2, 1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-scale { opacity: 0; transform: scale(0.95); transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1); }
+  .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+  /* Program card */
+  .program-card {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+  }
+  .program-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  }
+  .program-card:hover .program-img {
+    transform: scale(1.05);
+  }
+  .program-img {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Program number overlay */
+  .program-num {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 8rem;
+    line-height: 1;
+    color: rgba(212, 175, 55, 0.08);
+    position: absolute;
+    top: -1rem;
+    right: 1rem;
+    pointer-events: none;
+  }
+
+  /* Alternating layout for featured programs */
+  .program-feature { position: relative; }
+  .program-feature::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--gold);
+  }
+
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.3); } }
+  .pulse-dot { animation: pulse 2s ease-in-out infinite; }
+
+  /* Tag pill */
+  .tag { display: inline-flex; align-items: center; padding: 0.35rem 0.85rem; font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; border: 1px solid; }
+  .tag-mentoring { color: var(--gold); border-color: var(--gold); }
+  .tag-education { color: #2563EB; border-color: #2563EB; }
+  .tag-community { color: #16A34A; border-color: #16A34A; }
+  .tag-fundraising { color: #DC2626; border-color: #DC2626; }
+  .tag-empowerment { color: #9333EA; border-color: #9333EA; }
+</style>
+</head>
+<body data-theme="default">
+
+<!-- Announcement bar -->
+<div class="announcement">
+  <div class="max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-center md:justify-between text-sm">
+    <div class="flex items-center gap-3 min-w-0">
+      <span class="w-1.5 h-1.5 rounded-full flex-shrink-0 pulse-dot" style="background: var(--gold);"></span>
+      <span id="announcementText" class="font-medium truncate">Join us at the Drew Gala — our premier fundraising event supporting Bridge Builders</span>
+    </div>
+    <a href="#" class="hidden md:inline-flex items-center gap-1 text-xs font-bold tracking-widest uppercase flex-shrink-0 ml-4" style="color: var(--gold);">Details →</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header" id="header">
+  <div class="header-theme-layer" id="headerThemeLayer"></div>
+  <div class="header-inner max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="logo-mark">
+      <div class="logo-100">100</div>
+      <div class="logo-text">Black Men<br><span style="color: var(--gold);">Southwest Florida</span></div>
+    </a>
+    <div class="flex items-center gap-3">
+      <a href="/donate" class="btn btn-ink text-xs hidden sm:inline-flex" style="padding: 0.75rem 1.5rem;">Donate</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <div class="hamburger-lines"><span></span><span></span><span></span></div>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Menu overlay -->
+<div class="menu-overlay" id="menuOverlay">
+  <nav>
+    <ul>
+      <li><a href="/" data-menu-close>Home</a></li>
+      <li><a href="/about" data-menu-close>About</a></li>
+      <li><a href="/programs" data-menu-close style="color: var(--gold);">Programs</a></li>
+      <li><a href="/events" data-menu-close>Events</a></li>
+      <li><a href="/membership" data-menu-close>Membership</a></li>
+      <li><a href="/donate" data-menu-close>Donate</a></li>
+      <li><a href="/gallery" data-menu-close>Gallery</a></li>
+      <li><a href="/contact" data-menu-close>Contact</a></li>
+    </ul>
+    <div class="mt-12 text-center">
+      <div class="eyebrow mb-4" style="color: var(--gold);">Take Action</div>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="https://form.jotform.com/251607510409148" target="_blank" class="btn btn-gold" style="padding: 0.75rem 1.5rem; font-size: 0.8rem;">Become a Mentor</a>
+        <a href="https://www.zeffy.com/en-US/donation-form/bridge-builders-leadership-academy-donations-and-sponsorships" target="_blank" class="btn btn-outline-cream" style="padding: 0.75rem 1.5rem; font-size: 0.8rem;">Donate</a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- Page Hero -->
+<section class="bg-[var(--ink)] text-[var(--cream)] py-20 md:py-28 text-center relative overflow-hidden">
+  <div class="max-w-4xl mx-auto px-6 relative z-10">
+    <div class="eyebrow mb-4" style="color: var(--gold);">⬥ Making a Difference</div>
+    <h1 class="display-xl text-5xl md:text-7xl lg:text-8xl mb-6">
+      Our Programs
+    </h1>
+    <p class="text-base md:text-lg max-w-2xl mx-auto leading-relaxed" style="color: var(--stone-light);">
+      Six programs. One mission. Every initiative is designed to develop leaders, strengthen families, and uplift Southwest Florida.
+    </p>
+  </div>
+  <!-- Decorative number -->
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none" style="opacity: 0.03;">
+    <span class="display-xl" style="font-size: clamp(15rem, 40vw, 35rem);">06</span>
+  </div>
+</section>
+
+<!-- Program 01: Bridge Builders (Flagship) -->
+<section class="py-20 md:py-28" style="background: var(--cream);">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="reveal">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div class="order-2 lg:order-1 text-center lg:text-left">
+          <div class="flex flex-wrap gap-2 justify-center lg:justify-start mb-4">
+            <span class="tag tag-mentoring">Mentoring</span>
+            <span class="tag tag-education">Education</span>
+          </div>
+          <div class="eyebrow mb-3" style="color: var(--gold-deep);">Program 01 · Flagship</div>
+          <h2 class="display-lg text-3xl md:text-5xl mb-6">
+            Bridge Builders<br>Leadership Academy
+          </h2>
+          <p class="text-base md:text-lg leading-relaxed mb-4" style="color: var(--ink-soft);">
+            Our flagship mentoring program connects young men in grades 6 through 12 with positive role models for personal growth, academic success, and leadership development.
+          </p>
+          <p class="text-base md:text-lg leading-relaxed mb-4" style="color: var(--ink-soft);">
+            Bridge Builders meets monthly and runs through high school graduation. Mentors are trained through the national "Mentoring The 100 Way" curriculum, and every session focuses on real-world skills: schoolwork, career exploration, conflict resolution, and community service.
+          </p>
+          <p class="text-sm leading-relaxed mb-8" style="color: var(--stone);">
+            Currently running at Fort Myers Middle Academy in partnership with the Boys and Girls Club of SWFL.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+            <a href="https://form.jotform.com/233038624502146" target="_blank" class="btn btn-gold">
+              Apply as Mentee
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a href="https://form.jotform.com/251607510409148" target="_blank" class="btn btn-outline-ink">
+              Become a Mentor
+            </a>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2">
+          <div class="photo-placeholder aspect-[4/5] w-full"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bridge Builders quick stats -->
+    <div class="grid grid-cols-3 gap-6 mt-16 reveal">
+      <div class="text-center p-6 border" style="border-color: var(--stone-light);">
+        <div class="display-lg text-3xl md:text-4xl mb-2" style="color: var(--gold);">6–12</div>
+        <div class="text-xs uppercase tracking-widest font-bold" style="color: var(--stone);">Grade Levels</div>
+      </div>
+      <div class="text-center p-6 border" style="border-color: var(--stone-light);">
+        <div class="display-lg text-3xl md:text-4xl mb-2" style="color: var(--gold);">Monthly</div>
+        <div class="text-xs uppercase tracking-widest font-bold" style="color: var(--stone);">Sessions</div>
+      </div>
+      <div class="text-center p-6 border" style="border-color: var(--stone-light);">
+        <div class="display-lg text-3xl md:text-4xl mb-2" style="color: var(--gold);">Free</div>
+        <div class="text-xs uppercase tracking-widest font-bold" style="color: var(--stone);">For All Youth</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divider -->
+<div class="max-w-6xl mx-auto px-6"><div style="height: 1px; background: var(--stone-light);"></div></div>
+
+<!-- Program 02: Collegiate 100 -->
+<section class="py-20 md:py-28" style="background: var(--cream);">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="reveal">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div>
+          <div class="photo-placeholder aspect-[4/5] w-full"></div>
+        </div>
+        <div class="text-center lg:text-left">
+          <div class="flex flex-wrap gap-2 justify-center lg:justify-start mb-4">
+            <span class="tag tag-education">Education</span>
+            <span class="tag tag-mentoring">Leadership</span>
+          </div>
+          <div class="eyebrow mb-3" style="color: var(--gold-deep);">Program 02</div>
+          <h2 class="display-lg text-3xl md:text-5xl mb-6">
+            Collegiate 100
+          </h2>
+          <p class="text-base md:text-lg leading-relaxed mb-4" style="color: var(--ink-soft);">
+            A leadership development auxiliary for college-bound and enrolled students. Collegiate 100 members focus on academic excellence, professional development, and community service while receiving mentorship from active chapter members.
+          </p>
+          <p class="text-base md:text-lg leading-relaxed mb-8" style="color: var(--ink-soft);">
+            Established nationally in 1994 by 100 Black Men of America, the program bridges the gap between high school mentoring and professional life, creating a pipeline of future leaders.
+          </p>
+          <a href="https://form.jotform.com/251607510409148" target="_blank" class="btn btn-gold">
+            Get Involved
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="max-w-6xl mx-auto px-6"><div style="height: 1px; background: var(--stone-light);"></div></div>
+
+<!-- Program 03: Miss C100 -->
+<section class="py-20 md:py-28" style="background: var(--cream);">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="reveal">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div class="order-2 lg:order-1 text-center lg:text-left">
+          <div class="flex flex-wrap gap-2 justify-center lg:justify-start mb-4">
+            <span class="tag tag-empowerment">Empowerment</span>
+            <span class="tag tag-education">Education</span>
+          </div>
+          <div class="eyebrow mb-3" style="color: var(--gold-deep);">Program 03</div>
+          <h2 class="display-lg text-3xl md:text-5xl mb-6">
+            Miss C100
+          </h2>
+          <p class="text-base md:text-lg leading-relaxed mb-4" style="color: var(--ink-soft);">
+            An empowerment program for young women that emphasizes education, leadership, and community engagement. Miss C100 teaches presentation skills, personal development, and civic responsibility through workshops, mentorship, and public speaking opportunities.
+          </p>
+          <p class="text-base md:text-lg leading-relaxed mb-8" style="color: var(--ink-soft);">
+            Participants develop confidence through structured programs including the Walk Like a Lady Challenge, voice training, presentation workshops, and technology lab sessions.
+          </p>
+          <a href="https://form.jotform.com/251607510409148" target="_blank" class="btn btn-gold">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="order-1 lg:order-2">
+          <div class="photo-placeholder aspect-[4/5] w-full"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dark band - Events & Galas -->
+<section class="bg-[var(--ink)] text-[var(--cream)] py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <div class="eyebrow mb-4" style="color: var(--gold);">⬥ Events & Celebrations</div>
+      <h2 class="display-lg text-4xl md:text-5xl gold-rule">
+        Beyond the classroom.
+      </h2>
+      <p class="mt-8 text-base md:text-lg max-w-2xl mx-auto leading-relaxed" style="color: var(--stone-light);">
+        Our events bring the community together, raise critical funds, and celebrate the heritage and achievements of Southwest Florida.
+      </p>
+    </div>
+
+    <!-- Program 04: Drew Gala -->
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-20 reveal">
+      <div>
+        <div class="photo-placeholder aspect-[16/10] w-full"></div>
+      </div>
+      <div class="text-center lg:text-left">
+        <div class="flex flex-wrap gap-2 justify-center lg:justify-start mb-4">
+          <span class="tag tag-fundraising">Fundraising</span>
+          <span class="tag tag-community" style="color: var(--gold); border-color: var(--gold);">Annual Event</span>
+        </div>
+        <div class="eyebrow mb-3" style="color: var(--gold);">Program 04</div>
+        <h2 class="display-lg text-2xl md:text-4xl mb-6">
+          Dr. Charles R. Drew<br>Excellence in<br>Medicine Gala
+        </h2>
+        <p class="text-base md:text-lg leading-relaxed mb-4" style="color: var(--stone-light);">
+          Our premier annual fundraising gala honoring excellence in medicine and healthcare leadership. The Drew Gala brings together medical professionals, community leaders, and supporters for an evening of recognition and philanthropy.
+        </p>
+        <p class="text-sm leading-relaxed mb-8" style="color: var(--stone);">
+          All proceeds support chapter programs including Bridge Builders, Collegiate 100, and scholarship awards.
+        </p>
+        <a href="https://www.zeffy.com/en-US/donation-form/bridge-builders-leadership-academy-donations-and-sponsorships" target="_blank" class="btn btn-gold">
+          Support the Gala
+        </a>
+      </div>
+    </div>
+
+    <!-- Program 05: Juneteenth -->
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-20 reveal">
+      <div class="order-2 lg:order-1 text-center lg:text-left">
+        <div class="flex flex-wrap gap-2 justify-center lg:justify-start mb-4">
+          <span class="tag tag-community" style="color: #16A34A; border-color: #16A34A;">Community</span>
+          <span class="tag tag-community" style="color: var(--gold); border-color: var(--gold);">Annual Event</span>
+        </div>
+        <div class="eyebrow mb-3" style="color: var(--gold);">Program 05</div>
+        <h2 class="display-lg text-2xl md:text-4xl mb-6">
+          Juneteenth<br>Celebration
+        </h2>
+        <p class="text-base md:text-lg leading-relaxed mb-4" style="color: var(--stone-light);">
+          An annual community celebration commemorating freedom and African American heritage at the STARS Complex in Fort Myers. Four community organizations partner to create SWFL's premier Juneteenth gathering.
+        </p>
+        <p class="text-sm leading-relaxed mb-8" style="color: var(--stone);">
+          Features live entertainment, food vendors, educational programs, and family activities. Free and open to the public.
+        </p>
+        <a href="#" class="btn btn-outline-cream">
+          Next Juneteenth Event →
+        </a>
+      </div>
+      <div class="order-1 lg:order-2">
+        <div class="photo-placeholder aspect-[16/10] w-full"></div>
+      </div>
+    </div>
+
+    <!-- Program 06: Community Breakfast -->
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center reveal">
+      <div>
+        <div class="photo-placeholder aspect-[16/10] w-full"></div>
+      </div>
+      <div class="text-center lg:text-left">
+        <div class="flex flex-wrap gap-2 justify-center lg:justify-start mb-4">
+          <span class="tag tag-community" style="color: #16A34A; border-color: #16A34A;">Community</span>
+          <span class="tag tag-mentoring">Networking</span>
+        </div>
+        <div class="eyebrow mb-3" style="color: var(--gold);">Program 06</div>
+        <h2 class="display-lg text-2xl md:text-4xl mb-6">
+          Community<br>Breakfast
+        </h2>
+        <p class="text-base md:text-lg leading-relaxed mb-4" style="color: var(--stone-light);">
+          Monthly fellowship bringing together mentors, families, and community members. The breakfast features guest speakers, health and wellness conversations, networking, and the kind of connection that builds movements.
+        </p>
+        <p class="text-sm leading-relaxed mb-8" style="color: var(--stone);">
+          Open to the public. Focused on bringing men together to discuss mentoring, health, and economic opportunity in SWFL.
+        </p>
+        <a href="#" class="btn btn-outline-cream">
+          Next Breakfast →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-20 md:py-28 text-center" style="background: var(--cream);">
+  <div class="max-w-3xl mx-auto px-6 reveal">
+    <div class="eyebrow mb-4" style="color: var(--gold-deep);">⬥ Get Involved</div>
+    <h2 class="display-lg text-4xl md:text-5xl mb-6 gold-rule">
+      Find your role.
+    </h2>
+    <p class="text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-10" style="color: var(--ink-soft);">
+      Whether you want to mentor youth, receive mentorship, or support our programs financially, there's a place for you in this work.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="https://form.jotform.com/251607510409148" target="_blank" class="btn btn-ink">
+        Become a Mentor
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="https://form.jotform.com/233038624502146" target="_blank" class="btn btn-outline-ink">
+        Apply as Mentee
+      </a>
+      <a href="https://www.zeffy.com/en-US/donation-form/bridge-builders-leadership-academy-donations-and-sponsorships" target="_blank" class="btn btn-gold">
+        Donate
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-16 md:py-20" style="background: var(--ink); color: var(--cream);">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <div class="logo-mark justify-center mb-6" style="display: inline-flex;">
+      <div class="logo-100" style="color: var(--cream);">100</div>
+      <div class="logo-text text-left" style="color: var(--cream);">Black Men<br><span style="color: var(--gold);">Southwest Florida</span></div>
+    </div>
+    <p class="text-sm text-[var(--stone-light)] leading-relaxed max-w-md mx-auto mb-8">
+      Mentoring Across a Lifetime. A chartered chapter of 100 Black Men of America, Inc.
+    </p>
+    <div class="flex flex-wrap justify-center gap-6 md:gap-8 mb-10 text-sm">
+      <a href="/" class="hover:text-[var(--gold)] transition-colors">Home</a>
+      <a href="/about" class="hover:text-[var(--gold)] transition-colors">About</a>
+      <a href="/programs" class="hover:text-[var(--gold)] transition-colors" style="color: var(--gold);">Programs</a>
+      <a href="/events" class="hover:text-[var(--gold)] transition-colors">Events</a>
+      <a href="/membership" class="hover:text-[var(--gold)] transition-colors">Membership</a>
+      <a href="/donate" class="hover:text-[var(--gold)] transition-colors">Donate</a>
+      <a href="/gallery" class="hover:text-[var(--gold)] transition-colors">Gallery</a>
+      <a href="/contact" class="hover:text-[var(--gold)] transition-colors">Contact</a>
+    </div>
+    <a href="https://www.zeffy.com/en-US/donation-form/bridge-builders-leadership-academy-donations-and-sponsorships" target="_blank" class="btn btn-gold mb-10" style="padding: 0.75rem 1.5rem; font-size: 0.75rem;">Donate Now</a>
+    <div class="pt-8 border-t text-xs text-[var(--stone-light)]" style="border-color: rgba(212, 175, 55, 0.2);">
+      <p class="mb-2">© 2026 100 Black Men of Southwest Florida, Inc.</p>
+      <p class="opacity-60">A local chapter of <a href="https://100blackmen.org" target="_blank" class="hover:text-[var(--gold)] underline">100 Black Men of America</a> · 501(c)(3) · Tax-Deductible</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Theme Switcher -->
+<div style="position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 100; background: var(--ink); color: var(--cream); padding: 1rem; border: 1px solid var(--gold); max-width: 240px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+  <div class="eyebrow mb-3" style="color: var(--gold); font-size: 0.6rem;">🎨 Theme Preview</div>
+  <div class="flex flex-col gap-1.5" id="themeButtons">
+    <button class="theme-btn active" data-theme-btn="default" style="padding: 0.4rem 0.6rem; font-size: 0.7rem; border: 1px solid rgba(248, 245, 238, 0.2); background: transparent; color: var(--cream); text-align: left; cursor: pointer;">Default</button>
+    <button class="theme-btn" data-theme-btn="mlk" style="padding: 0.4rem 0.6rem; font-size: 0.7rem; border: 1px solid rgba(248, 245, 238, 0.2); background: transparent; color: var(--cream); text-align: left; cursor: pointer;">MLK Day</button>
+    <button class="theme-btn" data-theme-btn="bhm" style="padding: 0.4rem 0.6rem; font-size: 0.7rem; border: 1px solid rgba(248, 245, 238, 0.2); background: transparent; color: var(--cream); text-align: left; cursor: pointer;">Black History Month</button>
+    <button class="theme-btn" data-theme-btn="juneteenth" style="padding: 0.4rem 0.6rem; font-size: 0.7rem; border: 1px solid rgba(248, 245, 238, 0.2); background: transparent; color: var(--cream); text-align: left; cursor: pointer;">Juneteenth</button>
+    <button class="theme-btn" data-theme-btn="christmas" style="padding: 0.4rem 0.6rem; font-size: 0.7rem; border: 1px solid rgba(248, 245, 238, 0.2); background: transparent; color: var(--cream); text-align: left; cursor: pointer;">Christmas</button>
+  </div>
+</div>
+
+<style>
+  .theme-btn.active { background: var(--gold) !important; color: var(--ink) !important; border-color: var(--gold) !important; }
+  .theme-btn:hover { border-color: var(--gold) !important; color: var(--gold) !important; }
+  .theme-btn.active:hover { color: var(--ink) !important; }
+</style>
+
+<script>
+  // Header scroll
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  });
+
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const menuOverlay = document.getElementById('menuOverlay');
+  const menuCloses = document.querySelectorAll('[data-menu-close]');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    menuOverlay.classList.toggle('open');
+    document.body.style.overflow = menuOverlay.classList.contains('open') ? 'hidden' : '';
+  });
+  menuCloses.forEach(link => {
+    link.addEventListener('click', () => { hamburger.classList.remove('open'); menuOverlay.classList.remove('open'); document.body.style.overflow = ''; });
+  });
+
+  // Scroll reveal
+  const revealElements = document.querySelectorAll('.reveal, .reveal-scale');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  // Theme switcher
+  const themeButtons = document.querySelectorAll('[data-theme-btn]');
+  const body = document.body;
+  const announcementText = document.getElementById('announcementText');
+  const headerThemeLayer = document.getElementById('headerThemeLayer');
+  const announcements = {
+    default: 'Join us at the Drew Gala — our premier fundraising event supporting Bridge Builders',
+    christmas: '🎄 Season of giving — your gift transforms young lives this December',
+    bhm: 'Black History Month — honoring those who built the path and those still building',
+    juneteenth: 'Juneteenth at STARS Complex — four organizations, one celebration',
+    mlk: 'MLK Day of Service — show up. Give time. Be the dream.'
+  };
+  let headerAnimInterval;
+
+  themeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const theme = btn.dataset.themeBtn;
+      body.dataset.theme = theme;
+      themeButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      announcementText.textContent = announcements[theme];
+      if (headerAnimInterval) clearInterval(headerAnimInterval);
+      headerThemeLayer.innerHTML = '';
+      if (theme === 'christmas') startHeaderSnow();
+      if (theme === 'juneteenth') startJuneteenthStars();
+      if (theme === 'mlk') startMLKDots();
+    });
+  });
+
+  function startHeaderSnow() {
+    for (let i = 0; i < 8; i++) setTimeout(createHeaderSnowflake, i * 400);
+    headerAnimInterval = setInterval(createHeaderSnowflake, 600);
+  }
+  function createHeaderSnowflake() {
+    if (body.dataset.theme !== 'christmas') return;
+    const flake = document.createElement('div');
+    flake.className = 'header-snowflake';
+    flake.textContent = Math.random() > 0.5 ? '❄' : '❅';
+    flake.style.left = Math.random() * 100 + '%';
+    const duration = 3 + Math.random() * 3;
+    flake.style.animationDuration = duration + 's';
+    flake.style.fontSize = (0.6 + Math.random() * 0.5) + 'rem';
+    headerThemeLayer.appendChild(flake);
+    setTimeout(() => flake.remove(), duration * 1000);
+  }
+  function startJuneteenthStars() {
+    for (let i = 0; i < 6; i++) {
+      const star = document.createElement('div');
+      star.className = 'juneteenth-star';
+      star.textContent = '★';
+      star.style.left = (8 + i * 15 + Math.random() * 4) + '%';
+      star.style.top = (15 + Math.random() * 60) + '%';
+      star.style.animationDelay = (Math.random() * 3) + 's';
+      headerThemeLayer.appendChild(star);
+    }
+  }
+  function startMLKDots() {
+    for (let i = 0; i < 10; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'mlk-dot';
+      dot.style.left = (Math.random() * 100) + '%';
+      dot.style.top = (Math.random() * 100) + '%';
+      dot.style.animationDelay = (Math.random() * 6) + 's';
+      headerThemeLayer.appendChild(dot);
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Membership | 100 Black Men of Southwest Florida</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0A0A0A;--ink-soft:#141414;--ink-card:#1C1C1C;--gold:#D4AF37;--gold-bright:#E8C547;--gold-deep:#A08423;--cream:#F8F5EE;--stone:#6B6B68;--stone-light:#D4D2CC}
+  *{-webkit-font-smoothing:antialiased}html{scroll-behavior:smooth}body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+  .display-xl{font-family:'Archivo Black',sans-serif;letter-spacing:-0.02em;line-height:0.95;text-transform:uppercase}.display-lg{font-family:'Archivo Black',sans-serif;letter-spacing:-0.02em;line-height:0.95;text-transform:uppercase}.display-md{font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:0.01em;line-height:1.05;text-transform:uppercase}.eyebrow{font-family:'Inter',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase}
+  .gold-rule::after{content:'';display:block;width:72px;height:4px;background:var(--gold);margin:1.5rem auto 0}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:0.6rem;padding:1rem 2rem;font-family:'Oswald',sans-serif;font-weight:600;font-size:0.875rem;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);border:2px solid transparent;cursor:pointer;white-space:nowrap}.btn-gold{background:var(--gold);color:var(--ink);border-color:var(--gold)}.btn-gold:hover{background:transparent;color:var(--gold);transform:translateY(-2px)}.btn-ink{background:var(--ink);color:var(--cream);border-color:var(--ink)}.btn-ink:hover{background:var(--gold);color:var(--ink);border-color:var(--gold);transform:translateY(-2px)}.btn-outline-ink{background:transparent;color:var(--ink);border-color:var(--ink)}.btn-outline-ink:hover{background:var(--ink);color:var(--cream);transform:translateY(-2px)}.btn-outline-cream{background:transparent;color:var(--cream);border-color:var(--cream)}.btn-outline-cream:hover{background:var(--cream);color:var(--ink);transform:translateY(-2px)}
+  .logo-mark{display:inline-flex;align-items:center;gap:0.75rem}.logo-100{font-family:'Archivo Black',sans-serif;font-size:2.25rem;line-height:1;color:var(--ink);letter-spacing:-0.05em}.logo-text{font-family:'Oswald',sans-serif;font-size:0.625rem;font-weight:600;line-height:1.2;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink)}
+  .announcement{background:var(--ink);color:var(--cream);border-bottom:1px solid rgba(212,175,55,0.25)}.site-header{position:sticky;top:0;z-index:40;background:var(--cream);transition:box-shadow 0.3s ease;overflow:hidden}.site-header.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.08)}.site-header::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(212,175,55,0.2)}.header-theme-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}.header-inner{position:relative;z-index:2}
+  [data-theme="christmas"] .header-snowflake{position:absolute;top:-12px;color:rgba(10,10,10,0.55);animation:headerSnowfall linear infinite}@keyframes headerSnowfall{0%{transform:translateY(0) rotate(0deg);opacity:0}20%{opacity:1}100%{transform:translateY(90px) rotate(360deg);opacity:0}}[data-theme="christmas"] .site-header{background:linear-gradient(180deg,#f8f5ee 0%,#fdf8ec 100%)}[data-theme="bhm"] .site-header::before{content:'';position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,#DC2626 0%,#DC2626 33.33%,#000 33.33%,#000 66.66%,#16A34A 66.66%,#16A34A 100%);z-index:3}[data-theme="bhm"] .site-header::after{display:none}[data-theme="juneteenth"] .site-header::before{content:'';position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,#DC2626,#FFFFFF,#1E3A8A,#DC2626,#FFFFFF,#1E3A8A);background-size:400% 100%;animation:juneteenthFlag 8s linear infinite;z-index:3}[data-theme="juneteenth"] .site-header::after{display:none}@keyframes juneteenthFlag{0%{background-position:0% 0%}100%{background-position:400% 0%}}[data-theme="mlk"] .site-header{background:linear-gradient(180deg,#f8f5ee 0%,#eef1f8 100%)}[data-theme="mlk"] .site-header::before{content:'';position:absolute;left:0;right:0;bottom:0;height:3px;background:#1E3A8A;z-index:3}[data-theme="mlk"] .site-header::after{display:none}
+  .hamburger{width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer;position:relative;z-index:60}.hamburger-lines{width:24px;height:18px;position:relative}.hamburger-lines span{position:absolute;left:0;width:100%;height:2.5px;background:var(--ink);transition:all 0.3s ease}.hamburger-lines span:nth-child(1){top:0}.hamburger-lines span:nth-child(2){top:50%;transform:translateY(-50%)}.hamburger-lines span:nth-child(3){bottom:0}.hamburger.open span{background:var(--cream)}.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  .menu-overlay{position:fixed;inset:0;background:var(--ink);z-index:55;transform:translateX(100%);transition:transform 0.5s cubic-bezier(0.77,0,0.175,1);display:flex;align-items:center;justify-content:center}.menu-overlay.open{transform:translateX(0)}.menu-overlay nav ul{list-style:none;padding:0;margin:0;text-align:center}.menu-overlay nav ul li{overflow:hidden;margin:0.5rem 0}.menu-overlay nav ul li a{display:inline-block;font-family:'Archivo Black',sans-serif;font-size:clamp(2rem,6vw,4rem);color:var(--cream);text-transform:uppercase;letter-spacing:-0.02em;line-height:1.1;transition:color 0.3s ease;transform:translateY(100%)}.menu-overlay.open nav ul li a{animation:menuItemReveal 0.7s cubic-bezier(0.77,0,0.175,1) forwards}.menu-overlay.open nav ul li:nth-child(1) a{animation-delay:0.2s}.menu-overlay.open nav ul li:nth-child(2) a{animation-delay:0.25s}.menu-overlay.open nav ul li:nth-child(3) a{animation-delay:0.3s}.menu-overlay.open nav ul li:nth-child(4) a{animation-delay:0.35s}.menu-overlay.open nav ul li:nth-child(5) a{animation-delay:0.4s}.menu-overlay.open nav ul li:nth-child(6) a{animation-delay:0.45s}.menu-overlay.open nav ul li:nth-child(7) a{animation-delay:0.5s}.menu-overlay.open nav ul li:nth-child(8) a{animation-delay:0.55s}@keyframes menuItemReveal{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}.menu-overlay nav ul li a:hover{color:var(--gold)}
+  .reveal{opacity:0;transform:translateY(40px);transition:opacity 0.9s cubic-bezier(0.4,0,0.2,1),transform 0.9s cubic-bezier(0.4,0,0.2,1)}.reveal.visible{opacity:1;transform:translateY(0)}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.3)}}.pulse-dot{animation:pulse 2s ease-in-out infinite}
+  .benefit-card{transition:transform 0.3s ease;border-left:4px solid var(--gold)}.benefit-card:hover{transform:translateX(6px)}
+</style>
+</head>
+<body data-theme="default">
+
+<div class="announcement"><div class="max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-center text-sm"><div class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full flex-shrink-0 pulse-dot" style="background:var(--gold)"></span><span id="announcementText" class="font-medium truncate">Join us at the Drew Gala — our premier fundraising event supporting Bridge Builders</span></div></div></div>
+
+<header class="site-header" id="header"><div class="header-theme-layer" id="headerThemeLayer"></div><div class="header-inner max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"><a href="/" class="logo-mark"><div class="logo-100">100</div><div class="logo-text">Black Men<br><span style="color:var(--gold)">Southwest Florida</span></div></a><div class="flex items-center gap-3"><a href="/donate" class="btn btn-ink text-xs hidden sm:inline-flex" style="padding:0.75rem 1.5rem">Donate</a><button class="hamburger" id="hamburger" aria-label="Open menu"><div class="hamburger-lines"><span></span><span></span><span></span></div></button></div></div></header>
+
+<div class="menu-overlay" id="menuOverlay"><nav><ul><li><a href="/" data-menu-close>Home</a></li><li><a href="/about" data-menu-close>About</a></li><li><a href="/programs" data-menu-close>Programs</a></li><li><a href="/events" data-menu-close>Events</a></li><li><a href="/membership" data-menu-close style="color:var(--gold)">Membership</a></li><li><a href="/donate" data-menu-close>Donate</a></li><li><a href="/gallery" data-menu-close>Gallery</a></li><li><a href="/contact" data-menu-close>Contact</a></li></ul></nav></div>
+
+<!-- Hero -->
+<section class="bg-[var(--ink)] text-[var(--cream)] py-20 md:py-28 text-center relative overflow-hidden">
+  <div class="max-w-4xl mx-auto px-6 relative z-10">
+    <div class="eyebrow mb-4" style="color:var(--gold)">⬥ Join the Brotherhood</div>
+    <h1 class="display-xl text-5xl md:text-7xl lg:text-8xl mb-6">Membership</h1>
+    <p class="text-base md:text-lg max-w-2xl mx-auto leading-relaxed" style="color:var(--stone-light)">Connect with accomplished professionals committed to making a difference. Members mentor, lead programs, and participate in meaningful community service.</p>
+  </div>
+</section>
+
+<!-- Benefits -->
+<section class="py-16 md:py-24" style="background:var(--cream)">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-12 reveal">
+      <div class="eyebrow mb-4" style="color:var(--gold-deep)">⬥ Why Join</div>
+      <h2 class="display-lg text-3xl md:text-5xl gold-rule">Membership Benefits</h2>
+    </div>
+
+    <div class="space-y-4 reveal">
+      <div class="benefit-card bg-white p-6">
+        <h3 class="display-md text-lg mb-1">Professional Network</h3>
+        <p class="text-sm" style="color:var(--stone)">Connect with accomplished professionals and community leaders across Southwest Florida and nationally through 110+ chapters.</p>
+      </div>
+      <div class="benefit-card bg-white p-6">
+        <h3 class="display-md text-lg mb-1">Leadership Development</h3>
+        <p class="text-sm" style="color:var(--stone)">Access workshops, training programs, and hands-on leadership opportunities through chapter programs and national conferences.</p>
+      </div>
+      <div class="benefit-card bg-white p-6">
+        <h3 class="display-md text-lg mb-1">Mentoring Impact</h3>
+        <p class="text-sm" style="color:var(--stone)">Directly shape the lives of young men and women through Bridge Builders, Collegiate 100, and Miss C100 programs.</p>
+      </div>
+      <div class="benefit-card bg-white p-6">
+        <h3 class="display-md text-lg mb-1">National Conferences</h3>
+        <p class="text-sm" style="color:var(--stone)">Participate in annual 100 Black Men of America conferences alongside 10,000+ members nationwide.</p>
+      </div>
+      <div class="benefit-card bg-white p-6">
+        <h3 class="display-md text-lg mb-1">Community Service</h3>
+        <p class="text-sm" style="color:var(--stone)">Civic engagement opportunities including the Drew Gala, Juneteenth celebration, Community Breakfasts, and health initiatives.</p>
+      </div>
+      <div class="benefit-card bg-white p-6">
+        <h3 class="display-md text-lg mb-1">Professional Growth</h3>
+        <p class="text-sm" style="color:var(--stone)">Career advancement resources, entrepreneurship support, and financial literacy programming for members and mentees alike.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Requirements -->
+<section class="bg-[var(--ink)] text-[var(--cream)] py-16 md:py-24">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <div class="mb-12 reveal">
+      <div class="eyebrow mb-4" style="color:var(--gold)">⬥ What It Takes</div>
+      <h2 class="display-lg text-3xl md:text-4xl gold-rule">Requirements</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 reveal">
+      <div class="p-6 border text-center" style="border-color:rgba(212,175,55,0.2)">
+        <div class="display-md text-3xl mb-3" style="color:var(--gold)">01</div>
+        <h3 class="display-md text-base mb-2">Commitment</h3>
+        <p class="text-xs" style="color:var(--stone-light)">Dedication to the mission and values of 100 Black Men</p>
+      </div>
+      <div class="p-6 border text-center" style="border-color:rgba(212,175,55,0.2)">
+        <div class="display-md text-3xl mb-3" style="color:var(--gold)">02</div>
+        <h3 class="display-md text-base mb-2">Participation</h3>
+        <p class="text-xs" style="color:var(--stone-light)">Active involvement in chapter programs and events</p>
+      </div>
+      <div class="p-6 border text-center" style="border-color:rgba(212,175,55,0.2)">
+        <div class="display-md text-3xl mb-3" style="color:var(--gold)">03</div>
+        <h3 class="display-md text-base mb-2">Role Model</h3>
+        <p class="text-xs" style="color:var(--stone-light)">Serve as a positive example for youth and the community</p>
+      </div>
+      <div class="p-6 border text-center" style="border-color:rgba(212,175,55,0.2)">
+        <div class="display-md text-3xl mb-3" style="color:var(--gold)">04</div>
+        <h3 class="display-md text-base mb-2">Dues</h3>
+        <p class="text-xs" style="color:var(--stone-light)">Payment of annual membership dues</p>
+      </div>
+      <div class="p-6 border text-center" style="border-color:rgba(212,175,55,0.2)">
+        <div class="display-md text-3xl mb-3" style="color:var(--gold)">05</div>
+        <h3 class="display-md text-base mb-2">Background Check</h3>
+        <p class="text-xs" style="color:var(--stone-light)">Successful completion of a background screening</p>
+      </div>
+      <div class="p-6 border text-center" style="border-color:rgba(212,175,55,0.2)">
+        <div class="display-md text-3xl mb-3" style="color:var(--gold)">06</div>
+        <h3 class="display-md text-base mb-2">Brotherhood</h3>
+        <p class="text-xs" style="color:var(--stone-light)">Willingness to support and uplift fellow members</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Apply CTA -->
+<section class="py-16 md:py-24 text-center" style="background:var(--cream)">
+  <div class="max-w-3xl mx-auto px-6 reveal">
+    <div class="eyebrow mb-4" style="color:var(--gold-deep)">⬥ Ready?</div>
+    <h2 class="display-lg text-4xl md:text-5xl mb-6 gold-rule">Apply for Membership</h2>
+    <p class="text-base md:text-lg leading-relaxed max-w-xl mx-auto mt-8 mb-10" style="color:var(--ink-soft)">Complete your application through our secure portal. A member of the membership committee will follow up within 5 business days.</p>
+    <a href="https://form.jotform.com/251607510409148" target="_blank" class="btn btn-gold">
+      Start Application
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+    <p class="text-xs mt-6" style="color:var(--stone)">Questions? Email <a href="mailto:100blkmenofswfl@gmail.com" class="underline" style="color:var(--gold-deep)">100blkmenofswfl@gmail.com</a></p>
+  </div>
+</section>
+
+<footer class="py-16 md:py-20" style="background:var(--ink);color:var(--cream)"><div class="max-w-7xl mx-auto px-6 text-center"><div class="logo-mark justify-center mb-6" style="display:inline-flex"><div class="logo-100" style="color:var(--cream)">100</div><div class="logo-text text-left" style="color:var(--cream)">Black Men<br><span style="color:var(--gold)">Southwest Florida</span></div></div><p class="text-sm text-[var(--stone-light)] leading-relaxed max-w-md mx-auto mb-8">Mentoring Across a Lifetime.</p><div class="flex flex-wrap justify-center gap-6 md:gap-8 mb-10 text-sm"><a href="/" class="hover:text-[var(--gold)] transition-colors">Home</a><a href="/about" class="hover:text-[var(--gold)] transition-colors">About</a><a href="/programs" class="hover:text-[var(--gold)] transition-colors">Programs</a><a href="/events" class="hover:text-[var(--gold)] transition-colors">Events</a><a href="/membership" style="color:var(--gold)">Membership</a><a href="/donate" class="hover:text-[var(--gold)] transition-colors">Donate</a><a href="/gallery" class="hover:text-[var(--gold)] transition-colors">Gallery</a><a href="/contact" class="hover:text-[var(--gold)] transition-colors">Contact</a></div><div class="pt-8 border-t text-xs text-[var(--stone-light)]" style="border-color:rgba(212,175,55,0.2)"><p class="mb-2">© 2026 100 Black Men of Southwest Florida, Inc.</p><p class="opacity-60">A local chapter of <a href="https://100blackmen.org" target="_blank" class="hover:text-[var(--gold)] underline">100 Black Men of America</a> · 501(c)(3)</p></div></div></footer>
+
+<script>
+  const header=document.getElementById('header');window.addEventListener('scroll',()=>{window.scrollY>10?header.classList.add('scrolled'):header.classList.remove('scrolled')});
+  const hamburger=document.getElementById('hamburger'),menuOverlay=document.getElementById('menuOverlay');hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');menuOverlay.classList.toggle('open');document.body.style.overflow=menuOverlay.classList.contains('open')?'hidden':''});document.querySelectorAll('[data-menu-close]').forEach(l=>{l.addEventListener('click',()=>{hamburger.classList.remove('open');menuOverlay.classList.remove('open');document.body.style.overflow=''})});
+  document.querySelectorAll('.reveal').forEach(el=>{new IntersectionObserver((e)=>{e.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible')}})},{threshold:0.12,rootMargin:'0px 0px -60px 0px'}).observe(el)});
+</script>
+</body>
+</html>

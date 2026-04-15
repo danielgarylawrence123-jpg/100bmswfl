@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Us | 100 Black Men of Southwest Florida</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0A0A0A;
+    --ink-soft: #141414;
+    --ink-card: #1C1C1C;
+    --gold: #D4AF37;
+    --gold-bright: #E8C547;
+    --gold-deep: #A08423;
+    --cream: #F8F5EE;
+    --paper: #FFFFFF;
+    --stone: #6B6B68;
+    --stone-light: #D4D2CC;
+  }
+
+  * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+
+  .display-xl { font-family: 'Archivo Black', sans-serif; letter-spacing: -0.02em; line-height: 0.95; text-transform: uppercase; }
+  .display-lg { font-family: 'Archivo Black', sans-serif; letter-spacing: -0.02em; line-height: 0.95; text-transform: uppercase; }
+  .display-md { font-family: 'Oswald', sans-serif; font-weight: 700; letter-spacing: 0.01em; line-height: 1.05; text-transform: uppercase; }
+  .eyebrow { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; }
+
+  .gold-rule::after { content: ''; display: block; width: 72px; height: 4px; background: var(--gold); margin: 1.5rem auto 0; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 1rem 2rem; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 0.875rem; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 2px solid transparent; cursor: pointer; white-space: nowrap; }
+  .btn-gold { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+  .btn-gold:hover { background: transparent; color: var(--gold); transform: translateY(-2px); }
+  .btn-ink { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .btn-ink:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); transform: translateY(-2px); }
+  .btn-outline-cream { background: transparent; color: var(--cream); border-color: var(--cream); }
+  .btn-outline-cream:hover { background: var(--cream); color: var(--ink); transform: translateY(-2px); }
+  .btn-outline-ink { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-outline-ink:hover { background: var(--ink); color: var(--cream); transform: translateY(-2px); }
+
+  .photo-placeholder {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2520 40%, #3a3020 100%);
+    position: relative; overflow: hidden;
+  }
+  .photo-placeholder::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 40%, rgba(212, 175, 55, 0.15) 0%, transparent 50%); }
+  .photo-placeholder::after { content: 'PHOTO'; position: absolute; bottom: 0.75rem; right: 0.75rem; font-family: 'Inter', sans-serif; font-size: 0.6rem; letter-spacing: 0.25em; color: rgba(212, 175, 55, 0.35); font-weight: 700; }
+
+  .logo-mark { display: inline-flex; align-items: center; gap: 0.75rem; }
+  .logo-100 { font-family: 'Archivo Black', sans-serif; font-size: 2.25rem; line-height: 1; color: var(--ink); letter-spacing: -0.05em; }
+  .logo-text { font-family: 'Oswald', sans-serif; font-size: 0.625rem; font-weight: 600; line-height: 1.2; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); }
+
+  .stat-number { font-family: 'Archivo Black', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1; letter-spacing: -0.03em; color: var(--gold); display: block; }
+
+  .announcement { background: var(--ink); color: var(--cream); border-bottom: 1px solid rgba(212, 175, 55, 0.25); }
+  .site-header { position: sticky; top: 0; z-index: 40; background: var(--cream); transition: box-shadow 0.3s ease; overflow: hidden; }
+  .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+  .site-header::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: rgba(212, 175, 55, 0.2); }
+  .header-theme-layer { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1; }
+  .header-inner { position: relative; z-index: 2; }
+
+  [data-theme="christmas"] .header-snowflake { position: absolute; top: -12px; color: rgba(10, 10, 10, 0.55); animation: headerSnowfall linear infinite; }
+  @keyframes headerSnowfall { 0% { transform: translateY(0) rotate(0deg); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateY(90px) rotate(360deg); opacity: 0; } }
+  [data-theme="christmas"] .site-header { background: linear-gradient(180deg, #f8f5ee 0%, #fdf8ec 100%); }
+  [data-theme="bhm"] .site-header::before { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: linear-gradient(90deg, #DC2626 0%, #DC2626 33.33%, #000 33.33%, #000 66.66%, #16A34A 66.66%, #16A34A 100%); z-index: 3; }
+  [data-theme="bhm"] .site-header::after { display: none; }
+  [data-theme="bhm"] .header-theme-layer { background-image: repeating-linear-gradient(45deg, transparent 0, transparent 40px, rgba(220, 38, 38, 0.04) 40px, rgba(220, 38, 38, 0.04) 42px, transparent 42px, transparent 80px, rgba(22, 163, 74, 0.04) 80px, rgba(22, 163, 74, 0.04) 82px); }
+  [data-theme="juneteenth"] .site-header::before { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: linear-gradient(90deg, #DC2626, #FFFFFF, #1E3A8A, #DC2626, #FFFFFF, #1E3A8A); background-size: 400% 100%; animation: juneteenthFlag 8s linear infinite; z-index: 3; }
+  [data-theme="juneteenth"] .site-header::after { display: none; }
+  @keyframes juneteenthFlag { 0% { background-position: 0% 0%; } 100% { background-position: 400% 0%; } }
+  [data-theme="juneteenth"] .juneteenth-star { position: absolute; color: rgba(220, 38, 38, 0.5); font-size: 0.9rem; animation: twinkle 3s ease-in-out infinite; }
+  @keyframes twinkle { 0%, 100% { opacity: 0.2; transform: scale(0.8); } 50% { opacity: 0.9; transform: scale(1.1); } }
+  [data-theme="mlk"] .site-header { background: linear-gradient(180deg, #f8f5ee 0%, #eef1f8 100%); }
+  [data-theme="mlk"] .site-header::before { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: #1E3A8A; z-index: 3; }
+  [data-theme="mlk"] .site-header::after { display: none; }
+  [data-theme="mlk"] .mlk-dot { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: rgba(30, 58, 138, 0.3); animation: mlkFloat 6s ease-in-out infinite; }
+  @keyframes mlkFloat { 0%, 100% { transform: translateY(0); opacity: 0.4; } 50% { transform: translateY(-10px); opacity: 0.8; } }
+
+  .hamburger { width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; background: transparent; border: none; cursor: pointer; position: relative; z-index: 60; }
+  .hamburger-lines { width: 24px; height: 18px; position: relative; }
+  .hamburger-lines span { position: absolute; left: 0; width: 100%; height: 2.5px; background: var(--ink); transition: all 0.3s ease; }
+  .hamburger-lines span:nth-child(1) { top: 0; }
+  .hamburger-lines span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+  .hamburger-lines span:nth-child(3) { bottom: 0; }
+  .hamburger.open span { background: var(--cream); }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  .menu-overlay { position: fixed; inset: 0; background: var(--ink); z-index: 55; transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1); display: flex; align-items: center; justify-content: center; }
+  .menu-overlay.open { transform: translateX(0); }
+  .menu-overlay nav ul { list-style: none; padding: 0; margin: 0; text-align: center; }
+  .menu-overlay nav ul li { overflow: hidden; margin: 0.5rem 0; }
+  .menu-overlay nav ul li a { display: inline-block; font-family: 'Archivo Black', sans-serif; font-size: clamp(2rem, 6vw, 4rem); color: var(--cream); text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.1; transition: color 0.3s ease; transform: translateY(100%); }
+  .menu-overlay.open nav ul li a { animation: menuItemReveal 0.7s cubic-bezier(0.77, 0, 0.175, 1) forwards; }
+  .menu-overlay.open nav ul li:nth-child(1) a { animation-delay: 0.2s; }
+  .menu-overlay.open nav ul li:nth-child(2) a { animation-delay: 0.25s; }
+  .menu-overlay.open nav ul li:nth-child(3) a { animation-delay: 0.3s; }
+  .menu-overlay.open nav ul li:nth-child(4) a { animation-delay: 0.35s; }
+  .menu-overlay.open nav ul li:nth-child(5) a { animation-delay: 0.4s; }
+  .menu-overlay.open nav ul li:nth-child(6) a { animation-delay: 0.45s; }
+  .menu-overlay.open nav ul li:nth-child(7) a { animation-delay: 0.5s; }
+  .menu-overlay.open nav ul li:nth-child(8) a { animation-delay: 0.55s; }
+  @keyframes menuItemReveal { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .menu-overlay nav ul li a:hover { color: var(--gold); }
+
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1), transform 0.9s cubic-bezier(0.4, 0, 0.2, 1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .stagger > * { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+  .stagger.visible > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+  .stagger.visible > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+  .stagger.visible > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
+  .stagger.visible > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.3); } }
+  .pulse-dot { animation: pulse 2s ease-in-out infinite; }
+
+  /* Leader card with expandable bio */
+  .leader-card {
+    cursor: pointer;
+    transition: transform 0.4s ease;
+  }
+  .leader-card:hover { transform: translateY(-6px); }
+  .leader-card:hover .leader-img { filter: brightness(1.1); }
+  .leader-img { transition: filter 0.4s ease; }
+
+  .leader-bio {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, padding 0.4s ease;
+    opacity: 0;
+    padding: 0 1rem;
+  }
+  .leader-card.expanded .leader-bio {
+    max-height: 300px;
+    opacity: 1;
+    padding: 1rem;
+  }
+
+  /* Click indicator */
+  .click-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 0.75rem;
+    transition: opacity 0.3s ease;
+  }
+  .leader-card.expanded .click-hint { opacity: 0.5; }
+  .click-hint svg { transition: transform 0.3s ease; }
+  .leader-card.expanded .click-hint svg { transform: rotate(180deg); }
+
+  /* Quote */
+  .quote-mark {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 6rem;
+    line-height: 0.5;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  /* Timeline - TIGHTER spacing */
+  .timeline-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .timeline-dot::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: calc(100% + 1rem);
+    background: rgba(212, 175, 55, 0.2);
+  }
+  .timeline-item:last-child .timeline-dot::after { display: none; }
+</style>
+</head>
+<body data-theme="default">
+
+<!-- Announcement bar -->
+<div class="announcement">
+  <div class="max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-center md:justify-between text-sm">
+    <div class="flex items-center gap-3 min-w-0">
+      <span class="w-1.5 h-1.5 rounded-full flex-shrink-0 pulse-dot" style="background: var(--gold);"></span>
+      <span id="announcementText" class="font-medium truncate">Join us at the Drew Gala — our premier fundraising event supporting Bridge Builders</span>
+    </div>
+    <a href="/events" class="hidden md:inline-flex items-center gap-1 text-xs font-bold tracking-widest uppercase flex-shrink-0 ml-4" style="color: var(--gold);">Details →</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header" id="header">
+  <div class="header-theme-layer" id="headerThemeLayer"></div>
+  <div class="header-inner max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="logo-mark">
+      <div class="logo-100">100</div>
+      <div class="logo-text">Black Men<br><span style="color: var(--gold);">Southwest Florida</span></div>
+    </a>
+    <div class="flex items-center gap-3">
+      <a href="/donate" class="btn btn-ink text-xs hidden sm:inline-flex" style="padding: 0.75rem 1.5rem;">Donate</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <div class="hamburger-lines"><span></span><span></span><span></span></div>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Menu overlay -->
+<div class="menu-overlay" id="menuOverlay">
+  <nav>
+    <ul>
+      <li><a href="/" data-menu-close>Home</a></li>
+      <li><a href="/about" data-menu-close style="color: var(--gold);">About</a></li>
+      <li><a href="/programs" data-menu-close>Programs</a></li>
+      <li><a href="/events" data-menu-close>Events</a></li>
+      <li><a href="/membership" data-menu-close>Membership</a></li>
+      <li><a href="/donate" data-menu-close>Donate</a></li>
+      <li><a href="/gallery" data-menu-close>Gallery</a></li>
+      <li><a href="/contact" data-menu-close>Contact</a></li>
+    </ul>
+    <div class="mt-12 text-center">
+      <div class="eyebrow mb-4" style="color: var(--gold);">Take Action</div>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="https://form.jotform.com/251607510409148" target="_blank" class="btn btn-gold" style="padding: 0.75rem 1.5rem; font-size: 0.8rem;">Become a Mentor</a>
+        <a href="https://www.zeffy.com/en-US/donation-form/bridge-builders-leadership-academy-donations-and-sponsorships" target="_blank" class="btn btn-outline-cream" style="padding: 0.75rem 1.5rem; font-size: 0.8rem;">Donate</a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- Hero + Mission merged -->
+<section class="bg-[var(--ink)] text-[var(--cream)] py-20 md:py-28 text-center relative overflow-hidden">
+  <div class="max-w-4xl mx-auto px-6 relative z-10">
+    <div class="eyebrow mb-4" style="color: var(--gold);">⬥ Who We Are</div>
+    <h1 class="display-xl text-5xl md:text-7xl lg:text-8xl mb-8">
+      About Us
+    </h1>
+    <p class="text-base md:text-lg max-w-3xl mx-auto leading-relaxed" style="color: var(--stone-light);">
+      100 Black Men of Southwest Florida is a proud local chapter of 100 Black Men of America, Inc. — a leading organization of African American men committed to the intellectual development of youth and the economic empowerment of the African American community. Through our Four Pillars of Mentoring, Education, Health & Wellness, and Economic Empowerment, we develop leaders who transform Southwest Florida.
+    </p>
+  </div>
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none" style="opacity: 0.03;">
+    <span class="display-xl" style="font-size: clamp(12rem, 35vw, 30rem);">100</span>
+  </div>
+</section>
+
+<!-- Leadership (moved UP, right after hero) -->
+<section class="py-20 md:py-28" style="background: var(--cream);">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <div class="eyebrow mb-4" style="color: var(--gold-deep);">⬥ Leadership</div>
+      <h2 class="display-lg text-4xl md:text-5xl gold-rule">
+        Led by men who<br>show up every day.
+      </h2>
+      <p class="mt-8 text-base md:text-lg leading-relaxed max-w-2xl mx-auto" style="color: var(--ink-soft);">
+        Our executive board leads by example. Click on any leader to learn more about them.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 stagger">
+      <!-- Martin Byrd -->
+      <div class="leader-card text-center" data-leader>
+        <div class="photo-placeholder aspect-[3/4] mb-5 leader-img"></div>
+        <div class="eyebrow mb-1" style="color: var(--gold);">President</div>
+        <h3 class="display-md text-xl md:text-2xl">Martin Byrd</h3>
+        <div class="click-hint">
+          <span>View Bio</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="leader-bio">
+          <p class="text-sm leading-relaxed" style="color: var(--stone);">
+            Martin Byrd serves as President of 100 Black Men of Southwest Florida, leading the chapter's mission to mentor young men and empower the community. A dedicated public servant with the City of Fort Myers, Martin brings decades of leadership experience to the organization. His commitment to service has been recognized with the Keep of the Dream Award.
+          </p>
+        </div>
+      </div>
+
+      <!-- Dr. Duane Cumberbatch -->
+      <div class="leader-card text-center" data-leader>
+        <div class="photo-placeholder aspect-[3/4] mb-5 leader-img"></div>
+        <div class="eyebrow mb-1" style="color: var(--gold);">Vice President</div>
+        <h3 class="display-md text-xl md:text-2xl">Dr. Duane Cumberbatch</h3>
+        <div class="click-hint">
+          <span>View Bio</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="leader-bio">
+          <p class="text-sm leading-relaxed" style="color: var(--stone);">
+            Dr. Duane Cumberbatch serves as Vice President, bringing medical expertise and a deep commitment to health equity in Southwest Florida. His leadership in the Dr. Charles R. Drew Excellence in Medicine Gala reflects his dedication to recognizing healthcare professionals who serve underrepresented communities.
+          </p>
+        </div>
+      </div>
+
+      <!-- Robert Norris -->
+      <div class="leader-card text-center" data-leader>
+        <div class="photo-placeholder aspect-[3/4] mb-5 leader-img"></div>
+        <div class="eyebrow mb-1" style="color: var(--gold);">Secretary</div>
+        <h3 class="display-md text-xl md:text-2xl">Robert Norris</h3>
+        <div class="click-hint">
+          <span>View Bio</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="leader-bio">
+          <p class="text-sm leading-relaxed" style="color: var(--stone);">
+            Robert Norris serves as Secretary, ensuring the chapter's operations run with precision and accountability. His organizational leadership keeps the chapter's programs, communications, and partnerships aligned with the national mission of 100 Black Men of America.
+          </p>
+        </div>
+      </div>
+
+      <!-- Stephen Bell -->
+      <div class="leader-card text-center" data-leader>
+        <div class="photo-placeholder aspect-[3/4] mb-5 leader-img"></div>
+        <div class="eyebrow mb-1" style="color: var(--gold);">Treasurer</div>
+        <h3 class="display-md text-xl md:text-2xl">Stephen Bell</h3>
+        <div class="click-hint">
+          <span>View Bio</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="leader-bio">
+          <p class="text-sm leading-relaxed" style="color: var(--stone);">
+            Stephen Bell serves as Treasurer, stewarding the chapter's financial resources to maximize impact. His fiscal leadership ensures that donor contributions are directed efficiently to programs, scholarships, and community events — with full transparency and accountability.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Join CTA right under leadership -->
+    <div class="text-center mt-12 reveal">
+      <a href="/membership" class="btn btn-gold">
+        Become a Member
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Quote -->
+<section class="bg-[var(--ink)] text-[var(--cream)] py-16 md:py-24">
+  <div class="max-w-4xl mx-auto px-6 text-center reveal">
+    <span class="quote-mark">"</span>
+    <blockquote class="display-md text-xl md:text-3xl leading-snug mb-8 max-w-3xl mx-auto" style="text-transform: none; font-weight: 600;">
+      We just try to be that guiding or that support system, because as Black men we've been through it. Regardless of the climate now, obstacles in life are something you have to deal with no matter who you are.
+    </blockquote>
+    <footer>
+      <div class="display-md text-lg" style="color: var(--gold);">Charles Barnes</div>
+      <div class="text-sm mt-1" style="color: var(--stone-light);">Past President, 100 Black Men of SWFL</div>
+    </footer>
+  </div>
+</section>
+
+<!-- Chapter Story / Timeline — 30% TIGHTER -->
+<section class="py-16 md:py-24" style="background: var(--cream);">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-12 reveal">
+      <div class="eyebrow mb-4" style="color: var(--gold-deep);">⬥ Our Story</div>
+      <h2 class="display-lg text-3xl md:text-5xl gold-rule">
+        Built by men who<br>stayed for the work.
+      </h2>
+    </div>
+
+    <div class="reveal">
+      <!-- 1963 -->
+      <div class="timeline-item flex gap-5 items-start mb-6">
+        <div class="pt-1">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="pb-5">
+          <div class="display-md text-xl mb-1" style="color: var(--gold);">1963</div>
+          <h3 class="display-md text-base mb-2">The National Vision</h3>
+          <p class="text-sm leading-relaxed" style="color: var(--stone);">
+            A group of influential African American leaders in New York conceive the idea for 100 Black Men of America. Early members include David Dinkins, J. Bruce Llewellyn, and Jackie Robinson.
+          </p>
+        </div>
+      </div>
+
+      <!-- 1986 -->
+      <div class="timeline-item flex gap-5 items-start mb-6">
+        <div class="pt-1">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="pb-5">
+          <div class="display-md text-xl mb-1" style="color: var(--gold);">1986</div>
+          <h3 class="display-md text-base mb-2">National Incorporation</h3>
+          <p class="text-sm leading-relaxed" style="color: var(--stone);">
+            100 Black Men of America, Inc. is formally established as chapters spread nationwide. The "Four for the Future" framework becomes the standard for all chapters.
+          </p>
+        </div>
+      </div>
+
+      <!-- SWFL -->
+      <div class="timeline-item flex gap-5 items-start mb-6">
+        <div class="pt-1">
+          <div class="timeline-dot"></div>
+        </div>
+        <div class="pb-5">
+          <div class="display-md text-xl mb-1" style="color: var(--gold);">SWFL Chapter Founded</div>
+          <h3 class="display-md text-base mb-2">Southwest Florida Gets Its Chapter</h3>
+          <p class="text-sm leading-relaxed" style="color: var(--stone);">
+            A group of committed men in Fort Myers charter the Southwest Florida chapter, bringing the national mission to Lee, Collier, and Charlotte counties. Bridge Builders launches at Fort Myers Middle Academy.
+          </p>
+          <p class="text-xs mt-2 italic" style="color: var(--stone-light);">Exact founding year pending board verification.</p>
+        </div>
+      </div>
+
+      <!-- Today -->
+      <div class="timeline-item flex gap-5 items-start">
+        <div class="pt-1">
+          <div class="timeline-dot"></div>
+        </div>
+        <div>
+          <div class="display-md text-xl mb-1" style="color: var(--gold);">Today</div>
+          <h3 class="display-md text-base mb-2">500+ Youth Mentored and Growing</h3>
+          <p class="text-sm leading-relaxed" style="color: var(--stone);">
+            Six active programs, the annual Drew Gala, SWFL's premier Juneteenth celebration, and expanding partnerships with the Boys and Girls Club, D1 Gym, and community organizations. Over $100,000 in scholarships awarded.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Impact Stats -->
+<section class="bg-[var(--ink)] text-[var(--cream)] py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14 reveal">
+      <div class="eyebrow mb-4" style="color: var(--gold);">⬥ Our Impact</div>
+      <h2 class="display-lg text-4xl md:text-5xl gold-rule">
+        The work, in numbers.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-6 text-center stagger">
+      <div>
+        <span class="stat-number counter" data-target="500" data-suffix="+">0+</span>
+        <div class="text-xs uppercase tracking-widest font-bold mt-3 text-[var(--stone-light)]">Youth Mentored</div>
+      </div>
+      <div>
+        <span class="stat-number counter" data-prefix="$" data-target="100" data-suffix="K+">$0</span>
+        <div class="text-xs uppercase tracking-widest font-bold mt-3 text-[var(--stone-light)]">Scholarships</div>
+      </div>
+      <div>
+        <span class="stat-number counter" data-target="50" data-suffix="+">0+</span>
+        <div class="text-xs uppercase tracking-widest font-bold mt-3 text-[var(--stone-light)]">Active Mentors</div>
+      </div>
+      <div>
+        <span class="stat-number counter" data-target="6" data-suffix="">0</span>
+        <div class="text-xs uppercase tracking-widest font-bold mt-3 text-[var(--stone-light)]">Active Programs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- National affiliation -->
+<section class="py-16 md:py-24" style="background: var(--cream);">
+  <div class="max-w-4xl mx-auto px-6 text-center reveal">
+    <div class="eyebrow mb-4" style="color: var(--gold-deep);">⬥ Our National Family</div>
+    <h2 class="display-lg text-3xl md:text-5xl mb-8 gold-rule">
+      110+ Chapters.<br>10,000+ Members.<br>One Mission.
+    </h2>
+    <p class="text-base md:text-lg leading-relaxed max-w-2xl mx-auto mt-8 mb-10" style="color: var(--ink-soft);">
+      We are one of over 110 chapters of 100 Black Men of America, Inc. — a national network of African American professionals, businessmen, and civic leaders united by a single creed: what they see is what they will be.
+    </p>
+    <a href="https://100blackmen.org" target="_blank" class="btn btn-ink">
+      Visit National Site
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-16 md:py-20" style="background: var(--ink-soft); color: var(--cream);">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <div class="logo-mark justify-center mb-6" style="display: inline-flex;">
+      <div class="logo-100" style="color: var(--cream);">100</div>
+      <div class="logo-text text-left" style="color: var(--cream);">Black Men<br><span style="color: var(--gold);">Southwest Florida</span></div>
+    </div>
+    <p class="text-sm text-[var(--stone-light)] leading-relaxed max-w-md mx-auto mb-8">
+      Mentoring Across a Lifetime. A chartered chapter of 100 Black Men of America, Inc.
+    </p>
+    <div class="flex flex-wrap justify-center gap-6 md:gap-8 mb-10 text-sm">
+      <a href="/" class="hover:text-[var(--gold)] transition-colors">Home</a>
+      <a href="/about" class="hover:text-[var(--gold)] transition-colors" style="color: var(--gold);">About</a>
+      <a href="/programs" class="hover:text-[var(--gold)] transition-colors">Programs</a>
+      <a href="/events" class="hover:text-[var(--gold)] transition-colors">Events</a>
+      <a href="/membership" class="hover:text-[var(--gold)] transition-colors">Membership</a>
+      <a href="/donate" class="hover:text-[var(--gold)] transition-colors">Donate</a>
+      <a href="/gallery" class="hover:text-[var(--gold)] transition-colors">Gallery</a>
+      <a href="/contact" class="hover:text-[var(--gold)] transition-colors">Contact</a>
+    </div>
+    <a href="https://www.zeffy.com/en-US/donation-form/bridge-builders-leadership-academy-donations-and-sponsorships" target="_blank" class="btn btn-gold mb-10" style="padding: 0.75rem 1.5rem; font-size: 0.75rem;">Donate Now</a>
+    <div class="pt-8 border-t text-xs text-[var(--stone-light)]" style="border-color: rgba(212, 175, 55, 0.2);">
+      <p class="mb-2">© 2026 100 Black Men of Southwest Florida, Inc.</p>
+      <p class="opacity-60">A local chapter of <a href="https://100blackmen.org" target="_blank" class="hover:text-[var(--gold)] underline">100 Black Men of America</a> · 501(c)(3) · Tax-Deductible</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Theme Switcher -->
+<div style="position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 100; background: var(--ink); color: var(--cream); padding: 1rem; border: 1px solid var(--gold); max-width: 240px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+  <div class="eyebrow mb-3" style="color: var(--gold); font-size: 0.6rem;">🎨 Theme Preview</div>
+  <div class="flex flex-col gap-1.5" id="themeButtons">
+    <button class="theme-btn active" data-theme-btn="default" style="padding: 0.4rem 0.6rem; font-size: 0.7rem; border: 1px solid rgba(248, 245, 238, 0.2); background: transparent; color: var(--cream); text-align: left; cursor: pointer;">Default</button>
+    <button class="theme-btn" data-theme-btn="mlk" style="padding: 0.4rem 0.6rem; font-size: 0.7rem; border: 1px solid rgba(248, 245, 238, 0.2); background: transparent; color: var(--cream); text-align: left; cursor: pointer;">MLK Day</button>
+    <button class="theme-btn" data-theme-btn="bhm" style="padding: 0.4rem 0.6rem; font-size: 0.7rem; border: 1px solid rgba(248, 245, 238, 0.2); background: transparent; color: var(--cream); text-align: left; cursor: pointer;">Black History Month</button>
+    <button class="theme-btn" data-theme-btn="juneteenth" style="padding: 0.4rem 0.6rem; font-size: 0.7rem; border: 1px solid rgba(248, 245, 238, 0.2); background: transparent; color: var(--cream); text-align: left; cursor: pointer;">Juneteenth</button>
+    <button class="theme-btn" data-theme-btn="christmas" style="padding: 0.4rem 0.6rem; font-size: 0.7rem; border: 1px solid rgba(248, 245, 238, 0.2); background: transparent; color: var(--cream); text-align: left; cursor: pointer;">Christmas</button>
+  </div>
+</div>
+
+<style>
+  .theme-btn.active { background: var(--gold) !important; color: var(--ink) !important; border-color: var(--gold) !important; }
+  .theme-btn:hover { border-color: var(--gold) !important; color: var(--gold) !important; }
+  .theme-btn.active:hover { color: var(--ink) !important; }
+</style>
+
+<script>
+  // Header scroll
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  });
+
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const menuOverlay = document.getElementById('menuOverlay');
+  const menuCloses = document.querySelectorAll('[data-menu-close]');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    menuOverlay.classList.toggle('open');
+    document.body.style.overflow = menuOverlay.classList.contains('open') ? 'hidden' : '';
+  });
+  menuCloses.forEach(link => {
+    link.addEventListener('click', () => { hamburger.classList.remove('open'); menuOverlay.classList.remove('open'); document.body.style.overflow = ''; });
+  });
+
+  // Scroll reveal
+  const revealElements = document.querySelectorAll('.reveal, .stagger');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  // Leader card click-to-expand bios
+  const leaderCards = document.querySelectorAll('[data-leader]');
+  leaderCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const wasExpanded = card.classList.contains('expanded');
+      // Close all others first
+      leaderCards.forEach(c => c.classList.remove('expanded'));
+      // Toggle clicked one
+      if (!wasExpanded) {
+        card.classList.add('expanded');
+      }
+    });
+  });
+
+  // Count-up
+  function runCountUp(counter) {
+    const target = parseInt(counter.dataset.target);
+    const prefix = counter.dataset.prefix || '';
+    const suffix = counter.dataset.suffix || '';
+    const duration = 2200;
+    const startTime = performance.now();
+    const animate = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      const current = Math.floor(target * eased);
+      counter.textContent = prefix + current + suffix;
+      if (progress < 1) requestAnimationFrame(animate);
+      else counter.textContent = prefix + target + suffix;
+    };
+    requestAnimationFrame(animate);
+  }
+  const counters = document.querySelectorAll('.counter');
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.animated) {
+        entry.target.dataset.animated = 'true';
+        runCountUp(entry.target);
+        countObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  counters.forEach(c => countObserver.observe(c));
+
+  // Theme switcher
+  const themeButtons = document.querySelectorAll('[data-theme-btn]');
+  const body = document.body;
+  const announcementText = document.getElementById('announcementText');
+  const headerThemeLayer = document.getElementById('headerThemeLayer');
+  const announcements = {
+    default: 'Join us at the Drew Gala — our premier fundraising event supporting Bridge Builders',
+    christmas: '🎄 Season of giving — your gift transforms young lives this December',
+    bhm: 'Black History Month — honoring those who built the path and those still building',
+    juneteenth: 'Juneteenth at STARS Complex — four organizations, one celebration',
+    mlk: 'MLK Day of Service — show up. Give time. Be the dream.'
+  };
+  let headerAnimInterval;
+  themeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const theme = btn.dataset.themeBtn;
+      body.dataset.theme = theme;
+      themeButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      announcementText.textContent = announcements[theme];
+      if (headerAnimInterval) clearInterval(headerAnimInterval);
+      headerThemeLayer.innerHTML = '';
+      if (theme === 'christmas') startHeaderSnow();
+      if (theme === 'juneteenth') startJuneteenthStars();
+      if (theme === 'mlk') startMLKDots();
+    });
+  });
+  function startHeaderSnow() {
+    for (let i = 0; i < 8; i++) setTimeout(createHeaderSnowflake, i * 400);
+    headerAnimInterval = setInterval(createHeaderSnowflake, 600);
+  }
+  function createHeaderSnowflake() {
+    if (body.dataset.theme !== 'christmas') return;
+    const f = document.createElement('div');
+    f.className = 'header-snowflake';
+    f.textContent = Math.random() > 0.5 ? '❄' : '❅';
+    f.style.left = Math.random() * 100 + '%';
+    const d = 3 + Math.random() * 3;
+    f.style.animationDuration = d + 's';
+    f.style.fontSize = (0.6 + Math.random() * 0.5) + 'rem';
+    headerThemeLayer.appendChild(f);
+    setTimeout(() => f.remove(), d * 1000);
+  }
+  function startJuneteenthStars() {
+    for (let i = 0; i < 6; i++) {
+      const s = document.createElement('div');
+      s.className = 'juneteenth-star';
+      s.textContent = '★';
+      s.style.left = (8 + i * 15 + Math.random() * 4) + '%';
+      s.style.top = (15 + Math.random() * 60) + '%';
+      s.style.animationDelay = (Math.random() * 3) + 's';
+      headerThemeLayer.appendChild(s);
+    }
+  }
+  function startMLKDots() {
+    for (let i = 0; i < 10; i++) {
+      const d = document.createElement('div');
+      d.className = 'mlk-dot';
+      d.style.left = (Math.random() * 100) + '%';
+      d.style.top = (Math.random() * 100) + '%';
+      d.style.animationDelay = (Math.random() * 6) + 's';
+      headerThemeLayer.appendChild(d);
+    }
+  }
+</script>
+
+</body>
+</html>
