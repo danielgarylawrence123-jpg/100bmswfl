@@ -462,55 +462,140 @@
 <!-- Jr. 100 Bridge Builders -->
 <section class="py-20 md:py-28" style="background: var(--cream);">
   <div class="max-w-6xl mx-auto px-6">
+
+    <!-- Header -->
+    <div class="text-center mb-10 reveal">
+      <div class="flex flex-wrap gap-2 justify-center mb-4">
+        <span class="tag tag-mentoring">Mentoring</span>
+        <span class="tag tag-education">Education</span>
+        <span class="tag tag-empowerment">Empowerment</span>
+      </div>
+      <div class="eyebrow mb-3" style="color:var(--gold-deep);">Jr. 100 Bridge Builders</div>
+      <h2 class="display-lg text-3xl md:text-5xl mb-6">Jr. 100 Bridge Builders<br>Mentoring Program</h2>
+      <p class="text-base max-w-2xl mx-auto leading-relaxed" style="color:var(--ink-soft);">
+        We empower Bridge Builders to make positive life choices that maximize their potential. The Jr. 100 Leadership Academy is the cornerstone of how we make <strong>The 100 DIFFERENCE</strong>.
+      </p>
+    </div>
+
+    <!-- Program Keys - compact pills -->
+    <div class="flex flex-wrap justify-center gap-3 mb-14 reveal">
+      <div class="px-4 py-2 text-xs font-bold tracking-wide border" style="border-color:var(--gold); color:var(--gold-deep); font-family:'Oswald',sans-serif; text-transform:uppercase;">01 · Good Character</div>
+      <div class="px-4 py-2 text-xs font-bold tracking-wide border" style="border-color:var(--gold); color:var(--gold-deep); font-family:'Oswald',sans-serif; text-transform:uppercase;">02 · Literacy</div>
+      <div class="px-4 py-2 text-xs font-bold tracking-wide border" style="border-color:var(--gold); color:var(--gold-deep); font-family:'Oswald',sans-serif; text-transform:uppercase;">03 · Academic Excellence</div>
+      <div class="px-4 py-2 text-xs font-bold tracking-wide border" style="border-color:var(--gold); color:var(--gold-deep); font-family:'Oswald',sans-serif; text-transform:uppercase;">04 · Career Pathways</div>
+      <div class="px-4 py-2 text-xs font-bold tracking-wide border" style="border-color:var(--gold); color:var(--gold-deep); font-family:'Oswald',sans-serif; text-transform:uppercase;">05 · Cultural Enrichment</div>
+    </div>
+
+    <!-- 100 Programs - clickable blocks -->
     <div class="reveal">
-      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-        <div class="order-2 lg:order-1 text-center lg:text-left">
-          <div class="flex flex-wrap gap-2 justify-center lg:justify-start mb-4">
-            <span class="tag tag-mentoring">Mentoring</span>
-            <span class="tag tag-education">Education</span>
-            <span class="tag tag-empowerment">Empowerment</span>
-          </div>
-          <div class="eyebrow mb-3" style="color:var(--gold-deep);">Jr. 100 Bridge Builders</div>
-          <h2 class="display-lg text-3xl md:text-5xl mb-6">Jr. 100 Bridge<br>Builders Mentoring<br>Program</h2>
-          <p class="text-base md:text-lg leading-relaxed mb-6" style="color:var(--ink-soft);">
-            We empower our Bridge Builders to make positive life choices that maximize their potential. The Jr. 100 Bridge Builders Leadership Academy is the cornerstone of how we are making The 100 DIFFERENCE.
-          </p>
+      <div class="eyebrow text-center mb-6" style="color:var(--gold-deep);">⬥ 100 Programs — Click to Explore</div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8" id="programTabs">
+        <button class="program-tab active-tab text-left p-4 border-2 transition-all duration-300 cursor-pointer" data-tab="invest" style="border-color:var(--gold); background:var(--ink); color:var(--cream);">
+          <div class="display-md text-xs mb-1" style="color:var(--gold);">01</div>
+          <div class="display-md text-sm">Junior Investment Challenge</div>
+        </button>
+        <button class="program-tab text-left p-4 border-2 transition-all duration-300 cursor-pointer" data-tab="history" style="border-color:var(--stone-light); background:white; color:var(--ink);">
+          <div class="display-md text-xs mb-1" style="color:var(--gold);">02</div>
+          <div class="display-md text-sm">African American History Challenge</div>
+        </button>
+        <button class="program-tab text-left p-4 border-2 transition-all duration-300 cursor-pointer" data-tab="oratorical" style="border-color:var(--stone-light); background:white; color:var(--ink);">
+          <div class="display-md text-xs mb-1" style="color:var(--gold);">03</div>
+          <div class="display-md text-sm">100 Oratorical Contest</div>
+        </button>
+        <button class="program-tab text-left p-4 border-2 transition-all duration-300 cursor-pointer" data-tab="mlk" style="border-color:var(--stone-light); background:white; color:var(--ink);">
+          <div class="display-md text-xs mb-1" style="color:var(--gold);">04</div>
+          <div class="display-md text-sm">Annual MLK Essay Contest</div>
+        </button>
+        <button class="program-tab text-left p-4 border-2 transition-all duration-300 cursor-pointer" data-tab="flight" style="border-color:var(--stone-light); background:white; color:var(--ink);">
+          <div class="display-md text-xs mb-1" style="color:var(--gold);">05</div>
+          <div class="display-md text-sm">100 Takes Flight</div>
+        </button>
+        <button class="program-tab text-left p-4 border-2 transition-all duration-300 cursor-pointer" data-tab="health" style="border-color:var(--stone-light); background:white; color:var(--ink);">
+          <div class="display-md text-xs mb-1" style="color:var(--gold);">06</div>
+          <div class="display-md text-sm">Jr. 100 Health Initiative</div>
+        </button>
+      </div>
 
-          <div class="mb-6">
-            <div class="display-md text-base mb-3" style="color:var(--gold-deep);">Program Keys</div>
-            <ul class="space-y-2 text-sm" style="color:var(--stone);">
-              <li class="flex gap-2"><span style="color:var(--gold);">01</span> Develop and Promote Good Character</li>
-              <li class="flex gap-2"><span style="color:var(--gold);">02</span> Promote Literacy</li>
-              <li class="flex gap-2"><span style="color:var(--gold);">03</span> Provide support for Academic Excellence and Post-High Readiness</li>
-              <li class="flex gap-2"><span style="color:var(--gold);">04</span> Craft Career pathways with field-specific mentors and internship/apprenticeship opportunities</li>
-              <li class="flex gap-2"><span style="color:var(--gold);">05</span> Enhancing Cultural Enrichment</li>
-            </ul>
-          </div>
-
-          <div class="mb-8">
-            <div class="display-md text-base mb-3" style="color:var(--gold-deep);">100 Programs</div>
-            <ul class="space-y-2 text-sm" style="color:var(--stone);">
-              <li class="flex gap-2"><span style="color:var(--gold);">•</span> <strong>Junior Investment Challenge</strong> — Basic financial literacy and investing fundamentals</li>
-              <li class="flex gap-2"><span style="color:var(--gold);">•</span> <strong>African American History Challenge</strong> — Nationwide competition on history and figures</li>
-              <li class="flex gap-2"><span style="color:var(--gold);">•</span> <strong>100 Oratorical Contest</strong> — Public speaking and communication skills</li>
-              <li class="flex gap-2"><span style="color:var(--gold);">•</span> <strong>Annual MLK Essay Contest</strong> — Annual essay or video for a cash prize</li>
-              <li class="flex gap-2"><span style="color:var(--gold);">•</span> <strong>100 Takes Flight</strong> — Aviation field knowledge, career, and business training</li>
-              <li class="flex gap-2"><span style="color:var(--gold);">•</span> <strong>Jr. 100 Health Initiative</strong> — Cooking, fitness, medical education, and brain health sessions</li>
-            </ul>
-          </div>
-
-          <a href="https://form.jotform.com/233038624502146" target="_blank" class="btn btn-gold">
-            Apply as Mentee
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-        </div>
-        <div class="order-1 lg:order-2">
-          <div class="photo-placeholder aspect-[4/5] w-full"></div>
+      <!-- Program Detail Panel -->
+      <div id="programDetail" class="grid md:grid-cols-2 gap-8 items-start p-6 md:p-8" style="background:var(--ink); border-top:3px solid var(--gold);">
+        <div class="photo-placeholder w-full" id="programImg" style="min-height:220px;"></div>
+        <div id="programInfo">
+          <div class="eyebrow mb-2" style="color:var(--gold);" id="programLabel">Program 01</div>
+          <h3 class="display-md text-xl md:text-2xl mb-3" style="color:var(--cream);" id="programTitle">Junior Investment Challenge</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--stone-light);" id="programDesc">Ensures mentees develop basic financial literacy skills and guides them on the path to becoming investors. Mentees learn budgeting, saving, and the fundamentals of building wealth from an early age.</p>
         </div>
       </div>
     </div>
+
+    <div class="text-center mt-10 reveal">
+      <a href="https://form.jotform.com/233038624502146" target="_blank" class="btn btn-gold">
+        Apply as Mentee
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
   </div>
 </section>
+
+<style>
+  .program-tab:hover { border-color: var(--gold) !important; }
+  .active-tab { background: var(--ink) !important; color: var(--cream) !important; border-color: var(--gold) !important; }
+  .active-tab .display-md:last-child { color: var(--cream) !important; }
+</style>
+
+<script>
+  const programData = {
+    invest: {
+      label: 'Program 01',
+      title: 'Junior Investment Challenge',
+      desc: 'Ensures mentees develop basic financial literacy skills and guides them on the path to becoming investors. Mentees learn budgeting, saving, and the fundamentals of building wealth from an early age.'
+    },
+    history: {
+      label: 'Program 02',
+      title: 'African American History Challenge',
+      desc: 'Encourages students to be informed about a wide range of African American figures and events while participating in nationwide competition. Celebrates heritage and builds pride through knowledge.'
+    },
+    oratorical: {
+      label: 'Program 03',
+      title: '100 Oratorical Contest',
+      desc: 'Focused on developing public speaking, communication, and confidence in mentees. Participants research, prepare, and deliver speeches that challenge their thinking and sharpen their voice.'
+    },
+    mlk: {
+      label: 'Program 04',
+      title: 'Annual MLK Essay Contest',
+      desc: 'Students are given an annual topic to either write a short essay or produce a video for a cash prize. Honors the legacy of Dr. Martin Luther King Jr. through creative expression and reflection.'
+    },
+    flight: {
+      label: 'Program 05',
+      title: '100 Takes Flight',
+      desc: 'Focused on building mentees\' knowledge of the aviation field — training them to work in or own a business in aviation while connecting them with professionals currently working in the industry.'
+    },
+    health: {
+      label: 'Program 06',
+      title: 'Jr. 100 Health Initiative',
+      desc: 'Mentees take part in cooking courses, physical performance sessions, medical education, and brain health sessions to ensure their total wellness — mind, body, and spirit.'
+    }
+  };
+
+  document.querySelectorAll('.program-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.program-tab').forEach(t => {
+        t.classList.remove('active-tab');
+        t.style.background = 'white';
+        t.style.color = 'var(--ink)';
+        t.style.borderColor = 'var(--stone-light)';
+      });
+      tab.classList.add('active-tab');
+      tab.style.background = 'var(--ink)';
+      tab.style.color = 'var(--cream)';
+      tab.style.borderColor = 'var(--gold)';
+
+      const data = programData[tab.dataset.tab];
+      document.getElementById('programLabel').textContent = data.label;
+      document.getElementById('programTitle').textContent = data.title;
+      document.getElementById('programDesc').textContent = data.desc;
+    });
+  });
+</script>
 
 <div class="max-w-6xl mx-auto px-6"><div style="height:1px; background:var(--stone-light);"></div></div>
 
