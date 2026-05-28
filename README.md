@@ -2,7 +2,7 @@
 
 Official website for **100 Black Men of Southwest Florida**, a local chapter of 100 Black Men of America, Inc.
 
-**Live website:** https://100blackmenswfl.org
+**Live website:** https://danielgarylawrence123-jpg.github.io/100bmswfl/
 
 ## Website Purpose
 
