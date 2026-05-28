@@ -1,59 +1,79 @@
-# 100 Black Men of Southwest Florida
+# 100 Black Men of Southwest Florida Website
 
-Official website for the **100 Black Men of Southwest Florida** — a chartered chapter of 100 Black Men of America, Inc.
+Official website for **100 Black Men of Southwest Florida**, a local chapter of 100 Black Men of America, Inc.
 
-**Website:** [100blackmenswfl.org](https://100blackmenswfl.org)
+**Live website:** https://100blackmenswfl.org
 
----
+## Website Purpose
 
-## About
+This site presents the chapter's mission, programs, membership information, donation options, events, photo gallery, and contact details for the Southwest Florida community.
 
-100 Black Men of Southwest Florida is dedicated to empowering Black men and youth through mentoring, education, health & wellness, and economic empowerment. For over 12 years, our mentors have selflessly given their time and resources to guide the next generation across Lee, Collier, and Charlotte counties.
+## Page Breakdown
 
----
+| File | Page | Purpose |
+| --- | --- | --- |
+| `index.html` | Home | Main landing page with the hero section, mission pillars, impact stats, calls to action, and featured program links. |
+| `about.html` | About | Chapter history, organization background, leadership, Board of Directors, and connection to 100 Black Men of America. |
+| `programs.html` | Programs | Details on mentoring, education, health and wellness, economic empowerment, Bridge Builders, Jr. 100, Collegiate 100, and related initiatives. |
+| `membership.html` | Membership | Information for prospective members, including benefits, cost, requirements, and the membership process. |
+| `donate.html` | Donate | Donation messaging, sponsorship levels, impact areas, and donation calls to action. |
+| `events.html` | Events | Upcoming community events and chapter activities. |
+| `gallery.html` | Gallery | Photo gallery for chapter programs, events, and community work. |
+| `contact.html` | Contact | Contact information, direct action links, and ways to reach the organization. |
 
-## Pages
+## Main Calls to Action
 
-| Page | Description |
-|------|-------------|
-| `index.html` | Homepage with hero, mission pillars, and impact stats |
-| `about.html` | About us, leadership, Board of Directors, and chapter history |
-| `programs.html` | All programs including Bridge Builders, Jr. 100, Mentee Experience, and more |
-| `membership.html` | Membership info, benefits, cost, and 6-step process |
-| `donate.html` | Donation info, impact areas, and sponsorship levels |
-| `events.html` | Upcoming events |
-| `gallery.html` | Photo gallery |
-| `contact.html` | Contact information and message form |
+- Become a mentor
+- Apply as a mentee
+- Donate to support Bridge Builders and chapter programs
+- Contact the chapter
+- Learn about membership
 
----
+## Key Programs Featured
 
-## Programs
+- Bridge Builders Leadership Academy
+- Jr. 100 Bridge Builders
+- Collegiate 100
+- Miss C100
+- Dr. Charles R. Drew Excellence in Medicine Gala
+- Juneteenth Celebration
+- Community Breakfast
 
-- **Bridge Builders Leadership Academy** — Flagship mentoring program for grades 6–12
-- **Jr. 100 Bridge Builders** — Mentoring, academics, career pathways, and cultural enrichment
-- **Collegiate 100** — Leadership development for college students
-- **Miss C100** — Empowerment program for young women
-- **Dr. Charles R. Drew Excellence in Medicine Gala** — Annual fundraising event
-- **Juneteenth Celebration** — Annual community celebration at STARS Complex
-- **Community Breakfast** — Monthly community fellowship
+## Technical Notes
 
----
+This is a static HTML website. The pages use Tailwind CSS through a CDN and can be opened directly in a browser.
 
-## Contact
+To preview locally, open:
 
-**Martin Byrd Jr.** — President  
-Email: Mlbyrd12@gmail.com  
-Phone: 239-603-4131  
-General: 100blkmenofswfl@gmail.com
+```text
+index.html
+```
 
----
+or use a simple local server from this folder:
 
-## Organization Info
+```bash
+python3 -m http.server 8000
+```
+
+Then visit:
+
+```text
+http://localhost:8000
+```
+
+## Contact Information
+
+**President:** Martin Byrd Jr.  
+**Email:** Mlbyrd12@gmail.com  
+**Phone:** 239-603-4131  
+**General Email:** 100blkmenofswfl@gmail.com
+
+## Organization Information
 
 - **EIN:** 27-3591602
-- **Status:** 501(c)(3) Tax-Exempt Nonprofit
-- **National Affiliate:** [100 Black Men of America](https://100blackmen.org)
+- **Status:** 501(c)(3) tax-exempt nonprofit
+- **National Affiliate:** https://100blackmen.org
 
----
+## Git Notes
 
-*"What they see is what they will be." — Mentoring Across a Lifetime*
+The `.gitignore` file excludes `.DS_Store`, which is a macOS Finder settings file and should not be committed to the website repository.
