@@ -22,7 +22,7 @@
   .reveal{opacity:0;transform:translateY(40px);transition:opacity 0.9s cubic-bezier(0.4,0,0.2,1),transform 0.9s cubic-bezier(0.4,0,0.2,1)}.reveal.visible{opacity:1;transform:translateY(0)}
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.3)}}.pulse-dot{animation:pulse 2s ease-in-out infinite}
   .filter-btn{padding:0.5rem 1.25rem;font-family:'Oswald',sans-serif;font-weight:600;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;border:2px solid var(--stone-light);background:transparent;color:var(--stone);cursor:pointer;transition:all 0.25s ease}.filter-btn.active{background:var(--ink);color:var(--cream);border-color:var(--ink)}.filter-btn:hover:not(.active){border-color:var(--gold);color:var(--gold)}
-  .gallery-item{position:relative;overflow:hidden;cursor:pointer;background:linear-gradient(135deg,#1a1a1a 0%,#2a2520 40%,#3a3020 100%)}.gallery-item::after{content:'PHOTO';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Inter',sans-serif;font-size:0.6rem;letter-spacing:0.25em;color:rgba(212,175,55,0.3);font-weight:700}.gallery-item .overlay{position:absolute;inset:0;background:rgba(10,10,10,0.7);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:end;padding:1rem}.gallery-item:hover .overlay{opacity:1}
+  .gallery-item{position:relative;overflow:hidden;cursor:pointer;background:linear-gradient(135deg,#1a1a1a 0%,#2a2520 40%,#3a3020 100%)}.gallery-item::after{content:'PHOTO';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Inter',sans-serif;font-size:0.6rem;letter-spacing:0.25em;color:rgba(212,175,55,0.3);font-weight:700;z-index:0}.gallery-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}.gallery-item .overlay{position:absolute;inset:0;background:rgba(10,10,10,0.7);opacity:0;transition:opacity 0.3s ease;display:flex;align-items:end;padding:1rem;z-index:2}.gallery-item:hover .overlay{opacity:1}
 </style>
 </head>
 <body data-theme="default">
@@ -57,35 +57,28 @@
       <button class="filter-btn" data-filter="breakfast">Community Breakfast</button>
     </div>
 
-    <!-- Photo grid (placeholders — swap with real images from the old site) -->
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3" id="galleryGrid">
-      <!-- Drew Gala photos -->
-      <div class="gallery-item aspect-square" data-category="drew-gala"><div class="overlay"><p class="text-white text-xs font-semibold">Drew Gala 2025</p></div></div>
-      <div class="gallery-item aspect-square" data-category="drew-gala"><div class="overlay"><p class="text-white text-xs font-semibold">Drew Gala 2025</p></div></div>
-      <div class="gallery-item aspect-square" data-category="drew-gala"><div class="overlay"><p class="text-white text-xs font-semibold">Drew Gala 2025</p></div></div>
-      <div class="gallery-item aspect-square" data-category="drew-gala"><div class="overlay"><p class="text-white text-xs font-semibold">Drew Gala 2025</p></div></div>
-      <div class="gallery-item aspect-square" data-category="drew-gala"><div class="overlay"><p class="text-white text-xs font-semibold">Drew Gala 2025</p></div></div>
-      <div class="gallery-item aspect-square" data-category="drew-gala"><div class="overlay"><p class="text-white text-xs font-semibold">Drew Gala 2025</p></div></div>
-      <!-- Juneteenth -->
-      <div class="gallery-item aspect-square" data-category="juneteenth"><div class="overlay"><p class="text-white text-xs font-semibold">Juneteenth 2025</p></div></div>
-      <div class="gallery-item aspect-square" data-category="juneteenth"><div class="overlay"><p class="text-white text-xs font-semibold">Juneteenth 2025</p></div></div>
-      <div class="gallery-item aspect-square" data-category="juneteenth"><div class="overlay"><p class="text-white text-xs font-semibold">Juneteenth 2025</p></div></div>
+      <!-- Drew Gala 2025 -->
+      <div class="gallery-item aspect-square" data-category="drew-gala"><img src="https://drive.google.com/thumbnail?id=12blN32oabrEXm2mRIlOfkn9bXHMucc3c&sz=w800" alt="Drew Gala 2025" loading="lazy"><div class="overlay"><p class="text-white text-xs font-semibold">Dr. Charles R. Drew Gala 2025</p></div></div>
+      <div class="gallery-item aspect-square" data-category="drew-gala"><img src="https://drive.google.com/thumbnail?id=1ry946fB9jWHApX5VTQTmfrbU_S5Yx49E&sz=w800" alt="Drew Gala 2025" loading="lazy"><div class="overlay"><p class="text-white text-xs font-semibold">Dr. Charles R. Drew Gala 2025</p></div></div>
+      <div class="gallery-item aspect-square" data-category="drew-gala"><img src="https://drive.google.com/thumbnail?id=1i9cyr0-gjqotYyaUNDjaEvjfFzWS_pbY&sz=w800" alt="Drew Gala 2025" loading="lazy"><div class="overlay"><p class="text-white text-xs font-semibold">Dr. Charles R. Drew Gala 2025</p></div></div>
+      <div class="gallery-item aspect-square" data-category="drew-gala"><img src="https://drive.google.com/thumbnail?id=1JrzmYEFjoXqV5IdWtL-taNY9X4nOWyVm&sz=w800" alt="Drew Gala 2025" loading="lazy"><div class="overlay"><p class="text-white text-xs font-semibold">Dr. Charles R. Drew Gala 2025</p></div></div>
+      <div class="gallery-item aspect-square" data-category="drew-gala"><img src="https://drive.google.com/thumbnail?id=1041b73WwPxkCrBTV-aS_EI98DWUSF7kf&sz=w800" alt="Drew Gala 2025" loading="lazy"><div class="overlay"><p class="text-white text-xs font-semibold">Dr. Charles R. Drew Gala 2025</p></div></div>
+      <div class="gallery-item aspect-square" data-category="drew-gala"><img src="https://drive.google.com/thumbnail?id=1PQVJcWWUQM4DEf-5-BnVUVOLUugbU24D&sz=w800" alt="Drew Gala 2025" loading="lazy"><div class="overlay"><p class="text-white text-xs font-semibold">Dr. Charles R. Drew Gala 2025</p></div></div>
       <!-- Bridge Builders -->
-      <div class="gallery-item aspect-square" data-category="bridge-builders"><div class="overlay"><p class="text-white text-xs font-semibold">Bridge Builders</p></div></div>
-      <div class="gallery-item aspect-square" data-category="bridge-builders"><div class="overlay"><p class="text-white text-xs font-semibold">Bridge Builders</p></div></div>
-      <div class="gallery-item aspect-square" data-category="bridge-builders"><div class="overlay"><p class="text-white text-xs font-semibold">Bridge Builders</p></div></div>
-      <div class="gallery-item aspect-square" data-category="bridge-builders"><div class="overlay"><p class="text-white text-xs font-semibold">Bridge Builders</p></div></div>
+      <div class="gallery-item aspect-square" data-category="bridge-builders"><img src="https://drive.google.com/thumbnail?id=1arnnni0YiOdhqiuQ8ngCyBezPB1dBkz5&sz=w800" alt="Bridge Builders" loading="lazy"><div class="overlay"><p class="text-white text-xs font-semibold">Bridge Builders Leadership Academy</p></div></div>
+      <div class="gallery-item aspect-square" data-category="bridge-builders"><img src="https://drive.google.com/thumbnail?id=1NUEn3wlAzbpu8Httf0Ebp3Cj1RpfxsDG&sz=w800" alt="Bridge Builders" loading="lazy"><div class="overlay"><p class="text-white text-xs font-semibold">Bridge Builders Leadership Academy</p></div></div>
+      <div class="gallery-item aspect-square" data-category="bridge-builders"><img src="https://drive.google.com/thumbnail?id=1ODO30wdhwaHgcFSE9NsXF9qitZbUZZ_I&sz=w800" alt="Bridge Builders" loading="lazy"><div class="overlay"><p class="text-white text-xs font-semibold">Bridge Builders Leadership Academy</p></div></div>
       <!-- Collegiate 100 -->
-      <div class="gallery-item aspect-square" data-category="collegiate-100"><div class="overlay"><p class="text-white text-xs font-semibold">Collegiate 100</p></div></div>
-      <div class="gallery-item aspect-square" data-category="collegiate-100"><div class="overlay"><p class="text-white text-xs font-semibold">Collegiate 100</p></div></div>
-      <div class="gallery-item aspect-square" data-category="collegiate-100"><div class="overlay"><p class="text-white text-xs font-semibold">Collegiate 100</p></div></div>
+      <div class="gallery-item aspect-square" data-category="collegiate-100"><img src="https://drive.google.com/thumbnail?id=1frR9JJH3E8AUu2sU6bEUYnx-2nHaf9r3&sz=w800" alt="Collegiate 100" loading="lazy"><div class="overlay"><p class="text-white text-xs font-semibold">Collegiate 100 of FGCU</p></div></div>
+      <div class="gallery-item aspect-square" data-category="collegiate-100"><img src="https://drive.google.com/thumbnail?id=14AYkeg26lnOGQx59rpQg0Lm0l0NMC-C7&sz=w800" alt="Collegiate 100" loading="lazy"><div class="overlay"><p class="text-white text-xs font-semibold">Collegiate 100 of FGCU</p></div></div>
+      <div class="gallery-item aspect-square" data-category="collegiate-100"><img src="https://drive.google.com/thumbnail?id=12TC8n18xFQ3VVUakvRaBHYl7CZj6DmZi&sz=w800" alt="Collegiate 100 Members" loading="lazy"><div class="overlay"><p class="text-white text-xs font-semibold">Collegiate 100 Members</p></div></div>
       <!-- Miss C100 -->
-      <div class="gallery-item aspect-square" data-category="miss-c100"><div class="overlay"><p class="text-white text-xs font-semibold">Miss C100</p></div></div>
-      <div class="gallery-item aspect-square" data-category="miss-c100"><div class="overlay"><p class="text-white text-xs font-semibold">Miss C100</p></div></div>
-      <div class="gallery-item aspect-square" data-category="miss-c100"><div class="overlay"><p class="text-white text-xs font-semibold">Miss C100</p></div></div>
-      <!-- Community Breakfast -->
-      <div class="gallery-item aspect-square" data-category="breakfast"><div class="overlay"><p class="text-white text-xs font-semibold">Community Breakfast</p></div></div>
-      <div class="gallery-item aspect-square" data-category="breakfast"><div class="overlay"><p class="text-white text-xs font-semibold">Community Breakfast</p></div></div>
+      <div class="gallery-item aspect-square" data-category="miss-c100"><img src="https://drive.google.com/thumbnail?id=1cXn67n-m8y8yP40cBFciM1roDlui07K2&sz=w800" alt="Miss C100" loading="lazy"><div class="overlay"><p class="text-white text-xs font-semibold">Miss C100 Pageant</p></div></div>
+      <div class="gallery-item aspect-square" data-category="miss-c100"><img src="https://drive.google.com/thumbnail?id=1gW6_CZsfARxIilZr8ygdrTkywUY_jygh&sz=w800" alt="Miss C100" loading="lazy"><div class="overlay"><p class="text-white text-xs font-semibold">Miss C100 Pageant</p></div></div>
+      <div class="gallery-item aspect-square" data-category="miss-c100"><img src="https://drive.google.com/thumbnail?id=1K9nADKYFv3ctDmFtZiSL8X53KldYiy24&sz=w800" alt="Miss C100" loading="lazy"><div class="overlay"><p class="text-white text-xs font-semibold">Miss C100 Pageant</p></div></div>
+      <div class="gallery-item aspect-square" data-category="miss-c100"><img src="https://drive.google.com/thumbnail?id=1_w7kFrmSEGihSQMyKgWdw3hPnQbUa36u&sz=w800" alt="Miss C100" loading="lazy"><div class="overlay"><p class="text-white text-xs font-semibold">Miss C100 Pageant</p></div></div>
+      <!-- Community Breakfast — photos coming soon -->
       <div class="gallery-item aspect-square" data-category="breakfast"><div class="overlay"><p class="text-white text-xs font-semibold">Community Breakfast</p></div></div>
       <div class="gallery-item aspect-square" data-category="breakfast"><div class="overlay"><p class="text-white text-xs font-semibold">Community Breakfast</p></div></div>
     </div>
