@@ -325,16 +325,17 @@
     justify-content: center;
   }
   .menu-overlay.open { transform: translateX(0); }
+  .menu-overlay { overflow-y: auto; }
   .menu-overlay nav ul { list-style: none; padding: 0; margin: 0; text-align: center; }
-  .menu-overlay nav ul li { overflow: hidden; margin: 0.5rem 0; }
+  .menu-overlay nav ul li { overflow: hidden; margin: 0.28rem 0; }
   .menu-overlay nav ul li a {
     display: inline-block;
     font-family: 'Archivo Black', sans-serif;
-    font-size: clamp(2rem, 6vw, 4rem);
+    font-size: clamp(1.4rem, 5.5vw, 3.5rem);
     color: var(--cream);
     text-transform: uppercase;
     letter-spacing: -0.02em;
-    line-height: 1.1;
+    line-height: 1.15;
     transition: color 0.3s ease;
     transform: translateY(100%);
   }
@@ -462,35 +463,37 @@
   @keyframes popupBgOut { from { opacity: 1; } to { opacity: 0; } }
   .president-popup-modal {
     background: var(--ink);
-    max-width: 700px; width: 100%;
+    max-width: min(92vw, 940px); width: 100%;
     position: relative;
     animation: popupIn 0.45s cubic-bezier(0.4,0,0.2,1) forwards;
-    box-shadow: 0 40px 100px rgba(0,0,0,0.7);
+    box-shadow: 0 40px 120px rgba(0,0,0,0.75);
   }
   @keyframes popupIn { from { transform: translateY(28px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
   .president-popup-close {
-    position: absolute; top: 0.75rem; right: 0.75rem;
-    width: 40px; height: 40px;
+    position: absolute; top: 1rem; right: 1rem;
+    width: 42px; height: 42px;
     display: flex; align-items: center; justify-content: center;
-    background: rgba(10,10,10,0.65); color: var(--cream);
-    border: 1px solid rgba(248,245,238,0.25); cursor: pointer; z-index: 10;
+    background: rgba(10,10,10,0.7); color: var(--cream);
+    border: 1px solid rgba(248,245,238,0.3); cursor: pointer; z-index: 20;
     transition: all 0.2s ease;
   }
   .president-popup-close:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
   .president-popup-img {
-    width: 100%; height: clamp(360px, 55vh, 520px);
+    width: 100%; height: clamp(520px, 78vh, 720px);
     background: linear-gradient(135deg, #1a1a1a 0%, #2a2520 40%, #3a3020 100%);
     position: relative; overflow: hidden;
   }
   .president-popup-img img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
   .president-popup-text-overlay {
     position: absolute;
-    bottom: 0; left: 0; right: 0;
-    background: rgba(10, 10, 10, 0.82);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: 1.75rem 2rem 2rem;
-    border-top: 3px solid var(--gold);
+    inset: 0;
+    background: rgba(10, 10, 10, 0.70);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 3rem 2.5rem;
+    border: 3px solid rgba(212,175,55,0.4);
   }
 </style>
 </head>
@@ -505,13 +508,14 @@
     <div class="president-popup-img">
       <img src="https://drive.google.com/thumbnail?id=1S5-eGJ9vxlNpTnGNGl9vmcwJ2LVRK4Dv&sz=w800" alt="Martin Byrd Jr., President">
       <div class="president-popup-text-overlay">
-        <div class="eyebrow mb-3" style="color:var(--gold);">⬥ A Message from Our President</div>
-        <h3 class="display-md mb-1" style="color:var(--cream); font-size:1.6rem;">Martin Byrd Jr.</h3>
-        <div class="mb-4" style="color:rgba(248,245,238,0.65); font-family:'Inter',sans-serif; font-size:0.8rem; letter-spacing:0.06em;">President · 100 Black Men of Southwest Florida</div>
-        <p class="mb-5" style="color:rgba(248,245,238,0.92); font-style:italic; font-size:0.9rem; line-height:1.75;">
+        <div class="eyebrow mb-4" style="color:var(--gold);letter-spacing:0.22em;">⬥ A Message from Our President</div>
+        <h3 class="display-md mb-1" style="color:var(--cream); font-size:clamp(1.6rem,3.5vw,2.2rem);">Martin Byrd Jr.</h3>
+        <div class="mb-4" style="color:rgba(248,245,238,0.6); font-family:'Inter',sans-serif; font-size:0.78rem; letter-spacing:0.1em;">President · 100 Black Men of Southwest Florida</div>
+        <div style="width:48px;height:3px;background:var(--gold);margin:0 auto 1.5rem;"></div>
+        <p class="mb-6" style="color:rgba(248,245,238,0.95); font-style:italic; font-size:clamp(0.85rem,1.8vw,1.05rem); line-height:1.8; max-width:560px;">
           "What they see is what they will be. For over 12 years, our mentors have shown up — not just with words, but with time, presence, and purpose. Together, we are building something lasting: a village that lifts every young person we serve. Welcome to the 100 family."
         </p>
-        <button id="presidentPopupEnter" class="btn btn-gold" style="padding:0.85rem 2.5rem; font-size:0.85rem;">
+        <button id="presidentPopupEnter" class="btn btn-gold" style="padding:0.9rem 2.75rem; font-size:0.85rem;">
           Enter Site
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </button>
@@ -546,11 +550,7 @@
   <div class="header-theme-layer" id="headerThemeLayer"></div>
   <div class="header-inner max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     <a href="index.html" class="logo-mark">
-      <div class="logo-100">100</div>
-      <div class="logo-text">
-        Black Men<br>
-        <span style="color: var(--gold);">Southwest Florida</span>
-      </div>
+      <img src="https://drive.google.com/thumbnail?id=1m1j8Xqi0Onun1s-73zTtdAoNIc3a4ODG&sz=w600" alt="100 Black Men of Southwest Florida" style="height:46px;width:auto;object-fit:contain;">
     </a>
 
     <div class="flex items-center gap-3">
@@ -777,12 +777,8 @@
 <!-- Footer -->
 <footer class="py-10 md:py-20" style="background: var(--ink); color: var(--cream);">
   <div class="max-w-7xl mx-auto px-6 text-center">
-    <div class="logo-mark justify-center mb-4 md:mb-6" style="display: inline-flex;">
-      <div class="logo-100" style="color: var(--cream);">100</div>
-      <div class="logo-text text-left" style="color: var(--cream);">
-        Black Men<br>
-        <span style="color: var(--gold);">Southwest Florida</span>
-      </div>
+    <div class="flex justify-center mb-6">
+      <img src="https://drive.google.com/thumbnail?id=1ymTrpELHv-KhUDKaK3o33zydNG6uj0a-&sz=w400" alt="100 Black Men of Southwest Florida" style="height:44px;width:auto;object-fit:contain;opacity:0.9;">
     </div>
     <p class="hidden md:block text-sm text-[var(--stone-light)] leading-relaxed max-w-md mx-auto mb-8">
       Mentoring Across a Lifetime. A chartered chapter of 100 Black Men of America, Inc.
