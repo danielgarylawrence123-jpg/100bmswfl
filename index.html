@@ -25,7 +25,7 @@
 
   * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; font-size: 120%; }
 
   body {
     font-family: 'Inter', system-ui, sans-serif;
@@ -211,6 +211,9 @@
   [data-theme="bhm"] .header-theme-layer {
     background-image: repeating-linear-gradient(45deg, transparent 0, transparent 40px, rgba(220, 38, 38, 0.04) 40px, rgba(220, 38, 38, 0.04) 42px, transparent 42px, transparent 80px, rgba(22, 163, 74, 0.04) 80px, rgba(22, 163, 74, 0.04) 82px);
   }
+  [data-theme="bhm"] .announcement { background: linear-gradient(90deg, #DC2626 0%, #0A0A0A 40%, #16A34A 100%); }
+  [data-theme="bhm"] .btn-gold { background: #DC2626; border-color: #DC2626; color: #fff; }
+  [data-theme="bhm"] .btn-gold:hover { color: #DC2626; background: transparent; border-color: #DC2626; }
 
   /* Juneteenth - animated waving flag stripe */
   [data-theme="juneteenth"] .site-header::before {
@@ -346,6 +349,8 @@
   .menu-overlay.open nav ul li:nth-child(6) a { animation-delay: 0.45s; }
   .menu-overlay.open nav ul li:nth-child(7) a { animation-delay: 0.5s; }
   .menu-overlay.open nav ul li:nth-child(8) a { animation-delay: 0.55s; }
+  .menu-overlay.open nav ul li:nth-child(9) a { animation-delay: 0.6s; }
+  .menu-overlay.open nav ul li:nth-child(10) a { animation-delay: 0.65s; }
   @keyframes menuItemReveal {
     from { transform: translateY(100%); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
@@ -447,7 +452,7 @@
   /* President's Welcome Popup */
   .president-popup-overlay {
     position: fixed; inset: 0;
-    background: rgba(10,10,10,0.75);
+    background: rgba(10,10,10,0.80);
     z-index: 300;
     display: flex; align-items: center; justify-content: center;
     padding: 1rem;
@@ -456,34 +461,37 @@
   @keyframes popupBgIn { from { opacity: 0; } to { opacity: 1; } }
   @keyframes popupBgOut { from { opacity: 1; } to { opacity: 0; } }
   .president-popup-modal {
-    background: var(--cream);
-    max-width: 460px; width: 100%;
+    background: var(--ink);
+    max-width: 700px; width: 100%;
     position: relative;
     animation: popupIn 0.45s cubic-bezier(0.4,0,0.2,1) forwards;
-    box-shadow: 0 32px 80px rgba(0,0,0,0.45);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.7);
   }
   @keyframes popupIn { from { transform: translateY(28px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
   .president-popup-close {
-    position: absolute; top: 0.6rem; right: 0.6rem;
-    width: 34px; height: 34px;
+    position: absolute; top: 0.75rem; right: 0.75rem;
+    width: 40px; height: 40px;
     display: flex; align-items: center; justify-content: center;
-    background: var(--ink); color: var(--cream);
-    border: none; cursor: pointer; z-index: 10;
-    transition: background 0.2s ease;
+    background: rgba(10,10,10,0.65); color: var(--cream);
+    border: 1px solid rgba(248,245,238,0.25); cursor: pointer; z-index: 10;
+    transition: all 0.2s ease;
   }
-  .president-popup-close:hover { background: var(--gold); color: var(--ink); }
+  .president-popup-close:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
   .president-popup-img {
-    width: 100%; height: 220px;
+    width: 100%; height: clamp(360px, 55vh, 520px);
     background: linear-gradient(135deg, #1a1a1a 0%, #2a2520 40%, #3a3020 100%);
-    position: relative; overflow: hidden; flex-shrink: 0;
+    position: relative; overflow: hidden;
   }
-  .president-popup-img::before {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(circle at 40% 35%, rgba(212,175,55,0.18) 0%, transparent 55%);
-  }
-  .president-popup-img::after { content: none; }
   .president-popup-img img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
-  .president-popup-body { padding: 1.5rem; border-top: 3px solid var(--gold); }
+  .president-popup-text-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(10, 10, 10, 0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 1.75rem 2rem 2rem;
+    border-top: 3px solid var(--gold);
+  }
 </style>
 </head>
 <body data-theme="default">
@@ -494,18 +502,20 @@
     <button class="president-popup-close" id="presidentPopupClose" aria-label="Close welcome">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
-    <div class="president-popup-img"><img src="https://drive.google.com/thumbnail?id=1S5-eGJ9vxlNpTnGNGl9vmcwJ2LVRK4Dv&sz=w600" alt="Martin Byrd Jr., President"></div>
-    <div class="president-popup-body">
-      <div class="eyebrow mb-2" style="color:var(--gold);">⬥ A Message from Our President</div>
-      <h3 class="display-md text-xl mb-0.5">Martin Byrd Jr.</h3>
-      <div class="text-xs mb-3" style="color:var(--stone); font-family:'Inter',sans-serif;">President, 100 Black Men of Southwest Florida</div>
-      <p class="text-sm leading-relaxed mb-4" style="color:var(--ink-soft); font-style:italic;">
-        "What they see is what they will be. For over 12 years, our mentors have shown up — not just with words, but with time, presence, and purpose. Together, we are building something lasting: a village that lifts every young person we serve. Welcome to the 100 family."
-      </p>
-      <button id="presidentPopupEnter" class="btn btn-gold w-full" style="padding:0.75rem 1.5rem; font-size:0.8rem; width:100%; justify-content:center;">
-        Enter Site
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-      </button>
+    <div class="president-popup-img">
+      <img src="https://drive.google.com/thumbnail?id=1S5-eGJ9vxlNpTnGNGl9vmcwJ2LVRK4Dv&sz=w800" alt="Martin Byrd Jr., President">
+      <div class="president-popup-text-overlay">
+        <div class="eyebrow mb-3" style="color:var(--gold);">⬥ A Message from Our President</div>
+        <h3 class="display-md mb-1" style="color:var(--cream); font-size:1.6rem;">Martin Byrd Jr.</h3>
+        <div class="mb-4" style="color:rgba(248,245,238,0.65); font-family:'Inter',sans-serif; font-size:0.8rem; letter-spacing:0.06em;">President · 100 Black Men of Southwest Florida</div>
+        <p class="mb-5" style="color:rgba(248,245,238,0.92); font-style:italic; font-size:0.9rem; line-height:1.75;">
+          "What they see is what they will be. For over 12 years, our mentors have shown up — not just with words, but with time, presence, and purpose. Together, we are building something lasting: a village that lifts every young person we serve. Welcome to the 100 family."
+        </p>
+        <button id="presidentPopupEnter" class="btn btn-gold" style="padding:0.85rem 2.5rem; font-size:0.85rem;">
+          Enter Site
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -563,6 +573,8 @@
       <li><a href="index.html" data-menu-close style="color: var(--gold);">Home</a></li>
       <li><a href="about.html" data-menu-close>About</a></li>
       <li><a href="programs.html" data-menu-close>Programs</a></li>
+      <li><a href="jr100.html" data-menu-close>Jr. 100</a></li>
+      <li><a href="collegiate100.html" data-menu-close>Collegiate 100</a></li>
       <li><a href="events.html" data-menu-close>Events</a></li>
       <li><a href="membership.html" data-menu-close>Membership</a></li>
       <li><a href="donate.html" data-menu-close>Donate</a></li>

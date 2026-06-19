@@ -23,7 +23,7 @@
   }
 
   * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; font-size: 120%; }
   body { font-family: 'Inter', system-ui, sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
 
   .display-xl { font-family: 'Archivo Black', sans-serif; letter-spacing: -0.02em; line-height: 0.95; text-transform: uppercase; }
@@ -69,6 +69,9 @@
   [data-theme="bhm"] .site-header::before { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: linear-gradient(90deg, #DC2626 0%, #DC2626 33.33%, #000 33.33%, #000 66.66%, #16A34A 66.66%, #16A34A 100%); z-index: 3; }
   [data-theme="bhm"] .site-header::after { display: none; }
   [data-theme="bhm"] .header-theme-layer { background-image: repeating-linear-gradient(45deg, transparent 0, transparent 40px, rgba(220, 38, 38, 0.04) 40px, rgba(220, 38, 38, 0.04) 42px, transparent 42px, transparent 80px, rgba(22, 163, 74, 0.04) 80px, rgba(22, 163, 74, 0.04) 82px); }
+  [data-theme="bhm"] .announcement { background: linear-gradient(90deg, #DC2626 0%, #0A0A0A 40%, #16A34A 100%); }
+  [data-theme="bhm"] .btn-gold { background: #DC2626; border-color: #DC2626; color: #fff; }
+  [data-theme="bhm"] .btn-gold:hover { color: #DC2626; background: transparent; border-color: #DC2626; }
   [data-theme="juneteenth"] .site-header::before { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: linear-gradient(90deg, #DC2626, #FFFFFF, #1E3A8A, #DC2626, #FFFFFF, #1E3A8A); background-size: 400% 100%; animation: juneteenthFlag 8s linear infinite; z-index: 3; }
   [data-theme="juneteenth"] .site-header::after { display: none; }
   @keyframes juneteenthFlag { 0% { background-position: 0% 0%; } 100% { background-position: 400% 0%; } }
@@ -105,6 +108,8 @@
   .menu-overlay.open nav ul li:nth-child(6) a { animation-delay: 0.45s; }
   .menu-overlay.open nav ul li:nth-child(7) a { animation-delay: 0.5s; }
   .menu-overlay.open nav ul li:nth-child(8) a { animation-delay: 0.55s; }
+  .menu-overlay.open nav ul li:nth-child(9) a { animation-delay: 0.6s; }
+  .menu-overlay.open nav ul li:nth-child(10) a { animation-delay: 0.65s; }
   @keyframes menuItemReveal { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
   .menu-overlay nav ul li a:hover { color: var(--gold); }
 
@@ -228,6 +233,8 @@
       <li><a href="index.html" data-menu-close>Home</a></li>
       <li><a href="about.html" data-menu-close style="color: var(--gold);">About</a></li>
       <li><a href="programs.html" data-menu-close>Programs</a></li>
+      <li><a href="jr100.html" data-menu-close>Jr. 100</a></li>
+      <li><a href="collegiate100.html" data-menu-close>Collegiate 100</a></li>
       <li><a href="events.html" data-menu-close>Events</a></li>
       <li><a href="membership.html" data-menu-close>Membership</a></li>
       <li><a href="donate.html" data-menu-close>Donate</a></li>

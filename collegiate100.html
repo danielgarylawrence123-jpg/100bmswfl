@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FGCU Collegiate 100 | 100 Black Men of Southwest Florida</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#0A0A0A;--ink-soft:#141414;--ink-card:#1C1C1C;--gold:#D4AF37;--gold-bright:#E8C547;--gold-deep:#A08423;--cream:#F8F5EE;--stone:#6B6B68;--stone-light:#D4D2CC}
+  *{-webkit-font-smoothing:antialiased}html{scroll-behavior:smooth;font-size:120%}body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+  .display-xl{font-family:'Archivo Black',sans-serif;letter-spacing:-0.02em;line-height:0.95;text-transform:uppercase}.display-lg{font-family:'Archivo Black',sans-serif;letter-spacing:-0.02em;line-height:0.95;text-transform:uppercase}.display-md{font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:0.01em;line-height:1.05;text-transform:uppercase}.eyebrow{font-family:'Inter',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase}
+  .gold-rule::after{content:'';display:block;width:72px;height:4px;background:var(--gold);margin:1.5rem auto 0}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:0.6rem;padding:1rem 2rem;font-family:'Oswald',sans-serif;font-weight:600;font-size:0.875rem;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);border:2px solid transparent;cursor:pointer;white-space:nowrap}.btn-gold{background:var(--gold);color:var(--ink);border-color:var(--gold)}.btn-gold:hover{background:transparent;color:var(--gold);transform:translateY(-2px)}.btn-ink{background:var(--ink);color:var(--cream);border-color:var(--ink)}.btn-ink:hover{background:var(--gold);color:var(--ink);border-color:var(--gold);transform:translateY(-2px)}.btn-outline-cream{background:transparent;color:var(--cream);border-color:var(--cream)}.btn-outline-cream:hover{background:var(--cream);color:var(--ink);transform:translateY(-2px)}.btn-outline-ink{background:transparent;color:var(--ink);border-color:var(--ink)}.btn-outline-ink:hover{background:var(--ink);color:var(--cream);transform:translateY(-2px)}
+  .logo-mark{display:inline-flex;align-items:center;gap:0.75rem}.logo-100{font-family:'Archivo Black',sans-serif;font-size:2.25rem;line-height:1;color:var(--ink);letter-spacing:-0.05em}.logo-text{font-family:'Oswald',sans-serif;font-size:0.625rem;font-weight:600;line-height:1.2;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink)}
+  .announcement{background:var(--ink);color:var(--cream);border-bottom:1px solid rgba(212,175,55,0.25)}.site-header{position:sticky;top:0;z-index:40;background:var(--cream);transition:box-shadow 0.3s ease;overflow:hidden}.site-header.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.08)}.site-header::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(212,175,55,0.2)}.header-theme-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}.header-inner{position:relative;z-index:2}
+  [data-theme="christmas"] .header-snowflake{position:absolute;top:-12px;color:rgba(10,10,10,0.55);animation:headerSnowfall linear infinite}@keyframes headerSnowfall{0%{transform:translateY(0) rotate(0deg);opacity:0}20%{opacity:1}100%{transform:translateY(90px) rotate(360deg);opacity:0}}[data-theme="christmas"] .site-header{background:linear-gradient(180deg,#f8f5ee 0%,#fdf8ec 100%)}[data-theme="bhm"] .announcement{background:linear-gradient(90deg,#DC2626 0%,#0A0A0A 40%,#16A34A 100%)}[data-theme="bhm"] .site-header::before{content:'';position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,#DC2626 0%,#DC2626 33.33%,#000 33.33%,#000 66.66%,#16A34A 66.66%,#16A34A 100%);z-index:3}[data-theme="bhm"] .site-header::after{display:none}[data-theme="bhm"] .btn-gold{background:#DC2626;border-color:#DC2626;color:#fff}[data-theme="bhm"] .btn-gold:hover{color:#DC2626;background:transparent}[data-theme="juneteenth"] .site-header::before{content:'';position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,#DC2626,#FFFFFF,#1E3A8A,#DC2626,#FFFFFF,#1E3A8A);background-size:400% 100%;animation:juneteenthFlag 8s linear infinite;z-index:3}[data-theme="juneteenth"] .site-header::after{display:none}@keyframes juneteenthFlag{0%{background-position:0% 0%}100%{background-position:400% 0%}}[data-theme="mlk"] .site-header{background:linear-gradient(180deg,#f8f5ee 0%,#eef1f8 100%)}[data-theme="mlk"] .site-header::before{content:'';position:absolute;left:0;right:0;bottom:0;height:3px;background:#1E3A8A;z-index:3}[data-theme="mlk"] .site-header::after{display:none}
+  .hamburger{width:48px;height:48px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer;position:relative;z-index:60}.hamburger-lines{width:24px;height:18px;position:relative}.hamburger-lines span{position:absolute;left:0;width:100%;height:2.5px;background:var(--ink);transition:all 0.3s ease}.hamburger-lines span:nth-child(1){top:0}.hamburger-lines span:nth-child(2){top:50%;transform:translateY(-50%)}.hamburger-lines span:nth-child(3){bottom:0}.hamburger.open span{background:var(--cream)}.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.hamburger.open span:nth-child(2){opacity:0}.hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  .menu-overlay{position:fixed;inset:0;background:var(--ink);z-index:55;transform:translateX(100%);transition:transform 0.5s cubic-bezier(0.77,0,0.175,1);display:flex;align-items:center;justify-content:center}.menu-overlay.open{transform:translateX(0)}.menu-overlay nav ul{list-style:none;padding:0;margin:0;text-align:center}.menu-overlay nav ul li{overflow:hidden;margin:0.5rem 0}.menu-overlay nav ul li a{display:inline-block;font-family:'Archivo Black',sans-serif;font-size:clamp(2rem,6vw,4rem);color:var(--cream);text-transform:uppercase;letter-spacing:-0.02em;line-height:1.1;transition:color 0.3s ease;transform:translateY(100%)}.menu-overlay.open nav ul li a{animation:menuItemReveal 0.7s cubic-bezier(0.77,0,0.175,1) forwards}.menu-overlay.open nav ul li:nth-child(1) a{animation-delay:0.2s}.menu-overlay.open nav ul li:nth-child(2) a{animation-delay:0.25s}.menu-overlay.open nav ul li:nth-child(3) a{animation-delay:0.3s}.menu-overlay.open nav ul li:nth-child(4) a{animation-delay:0.35s}.menu-overlay.open nav ul li:nth-child(5) a{animation-delay:0.4s}.menu-overlay.open nav ul li:nth-child(6) a{animation-delay:0.45s}.menu-overlay.open nav ul li:nth-child(7) a{animation-delay:0.5s}.menu-overlay.open nav ul li:nth-child(8) a{animation-delay:0.55s}.menu-overlay.open nav ul li:nth-child(9) a{animation-delay:0.6s}.menu-overlay.open nav ul li:nth-child(10) a{animation-delay:0.65s}@keyframes menuItemReveal{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}.menu-overlay nav ul li a:hover{color:var(--gold)}
+  .reveal{opacity:0;transform:translateY(40px);transition:opacity 0.9s cubic-bezier(0.4,0,0.2,1),transform 0.9s cubic-bezier(0.4,0,0.2,1)}.reveal.visible{opacity:1;transform:translateY(0)}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.3)}}.pulse-dot{animation:pulse 2s ease-in-out infinite}
+  /* Member cards */
+  .member-card{position:relative;overflow:hidden;background:var(--ink-card)}
+  .member-card img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform 0.5s ease}
+  .member-card:hover img{transform:scale(1.05)}
+  .member-name{position:absolute;bottom:0;left:0;right:0;padding:0.75rem 1rem;background:linear-gradient(to top,rgba(10,10,10,0.9) 0%,transparent 100%);font-family:'Oswald',sans-serif;font-weight:600;font-size:0.9rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--cream)}
+  /* Group photo */
+  .group-photo{width:100%;height:420px;object-fit:cover;object-position:center top;display:block}
+  /* Link section header */
+  .link-label{display:inline-block;font-family:'Archivo Black',sans-serif;font-size:1.1rem;color:var(--gold);letter-spacing:-0.01em;line-height:1}
+</style>
+</head>
+<body data-theme="default">
+
+<div class="announcement"><div class="max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-center md:justify-between text-sm"><div class="flex items-center gap-3 min-w-0"><span class="w-1.5 h-1.5 rounded-full flex-shrink-0 pulse-dot" style="background:var(--gold)"></span><span id="announcementText" class="font-medium truncate">Join us at the Drew Gala — our premier fundraising event supporting Bridge Builders</span></div><a href="events.html" class="hidden md:inline-flex items-center gap-1 text-xs font-bold tracking-widest uppercase flex-shrink-0 ml-4" style="color:var(--gold)">Details →</a></div></div>
+
+<header class="site-header" id="header"><div class="header-theme-layer" id="headerThemeLayer"></div><div class="header-inner max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"><a href="index.html" class="logo-mark"><div class="logo-100">100</div><div class="logo-text">Black Men<br><span style="color:var(--gold)">Southwest Florida</span></div></a><div class="flex items-center gap-3"><a href="donate.html" class="btn btn-ink text-xs hidden sm:inline-flex" style="padding:0.75rem 1.5rem">Donate</a><button class="hamburger" id="hamburger" aria-label="Open menu"><div class="hamburger-lines"><span></span><span></span><span></span></div></button></div></div></header>
+
+<div class="menu-overlay" id="menuOverlay">
+  <nav>
+    <ul>
+      <li><a href="index.html" data-menu-close>Home</a></li>
+      <li><a href="about.html" data-menu-close>About</a></li>
+      <li><a href="programs.html" data-menu-close>Programs</a></li>
+      <li><a href="jr100.html" data-menu-close>Jr. 100</a></li>
+      <li><a href="collegiate100.html" data-menu-close style="color:var(--gold)">Collegiate 100</a></li>
+      <li><a href="events.html" data-menu-close>Events</a></li>
+      <li><a href="membership.html" data-menu-close>Membership</a></li>
+      <li><a href="donate.html" data-menu-close>Donate</a></li>
+      <li><a href="gallery.html" data-menu-close>Gallery</a></li>
+      <li><a href="contact.html" data-menu-close>Contact</a></li>
+    </ul>
+    <div class="mt-12 text-center">
+      <div class="eyebrow mb-4" style="color:var(--gold)">Take Action</div>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="https://form.jotform.com/251607510409148" target="_blank" class="btn btn-gold" style="padding:0.75rem 1.5rem;font-size:0.8rem;">Become a Mentor</a>
+        <a href="donate.html" class="btn btn-outline-cream" style="padding:0.75rem 1.5rem;font-size:0.8rem;">Donate</a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- Hero -->
+<section class="bg-[var(--ink)] text-[var(--cream)] relative overflow-hidden" style="min-height:52vh;display:flex;align-items:center;">
+  <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(10,10,10,0.88) 0%,rgba(10,10,10,0.65) 100%),linear-gradient(180deg,#1a1510 0%,#0a0a0a 100%);"></div>
+  <div class="absolute inset-0" style="background:radial-gradient(circle at 30% 60%,rgba(212,175,55,0.1) 0%,transparent 50%);"></div>
+  <div class="max-w-5xl mx-auto px-6 py-20 w-full text-center relative z-10">
+    <div class="eyebrow mb-5" style="color:var(--gold)">⬥ Florida Gulf Coast University</div>
+    <h1 class="display-xl mb-6" style="font-size:clamp(2.5rem,8vw,6rem);">
+      FGCU<br><span style="color:var(--gold)">Collegiate 100</span>
+    </h1>
+    <p class="text-base md:text-lg max-w-2xl mx-auto leading-relaxed" style="color:rgba(248,245,238,0.85);">
+      The next generation of 100 Black Men — college leaders at Florida Gulf Coast University carrying the legacy forward through service, brotherhood, and excellence.
+    </p>
+  </div>
+</section>
+
+<!-- Group Photos Gallery -->
+<section class="py-16 md:py-24 bg-[var(--ink)]">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12 reveal">
+      <div class="eyebrow mb-4" style="color:var(--gold)">⬥ The Brotherhood</div>
+      <h2 class="display-lg text-3xl md:text-5xl gold-rule" style="color:var(--cream)">Together we rise.</h2>
+    </div>
+    <!-- Group photo placeholders — replace src values once photos are uploaded to Drive -->
+    <div class="grid md:grid-cols-2 gap-2 reveal">
+      <div class="relative overflow-hidden" style="height:400px;background:linear-gradient(135deg,#1a1a1a,#2a2520);">
+        <div class="absolute inset-0 flex items-center justify-center flex-col gap-3" style="color:rgba(212,175,55,0.4)">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span class="eyebrow" style="font-size:0.6rem;letter-spacing:0.3em;">Group Photo 1</span>
+          <span style="font-size:0.65rem;color:rgba(248,245,238,0.3);font-family:'Inter',sans-serif;">Upload to Drive to display</span>
+        </div>
+      </div>
+      <div class="relative overflow-hidden" style="height:400px;background:linear-gradient(135deg,#1e1e1e,#2e2920);">
+        <div class="absolute inset-0 flex items-center justify-center flex-col gap-3" style="color:rgba(212,175,55,0.4)">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span class="eyebrow" style="font-size:0.6rem;letter-spacing:0.3em;">Group Photo 2</span>
+          <span style="font-size:0.65rem;color:rgba(248,245,238,0.3);font-family:'Inter',sans-serif;">Upload to Drive to display</span>
+        </div>
+      </div>
+      <div class="md:col-span-2 relative overflow-hidden" style="height:460px;background:linear-gradient(135deg,#151515,#251f15);">
+        <div class="absolute inset-0 flex items-center justify-center flex-col gap-3" style="color:rgba(212,175,55,0.4)">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span class="eyebrow" style="font-size:0.6rem;letter-spacing:0.3em;">Group Photo 3 — Wide</span>
+          <span style="font-size:0.65rem;color:rgba(248,245,238,0.3);font-family:'Inter',sans-serif;">Upload to Drive to display</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Members by Links -->
+<section class="py-16 md:py-24" style="background:var(--cream)">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <div class="eyebrow mb-4" style="color:var(--gold-deep)">⬥ Our Members</div>
+      <h2 class="display-lg text-3xl md:text-5xl gold-rule">The Links.</h2>
+      <p class="mt-8 text-base leading-relaxed max-w-2xl mx-auto" style="color:var(--stone)">Members are organized by their Line — the group they joined with. Each Link carries a name and a legacy.</p>
+    </div>
+
+    <!-- 1st Link -->
+    <div class="mb-20 reveal">
+      <div class="flex items-center gap-4 mb-8 pb-4" style="border-bottom:2px solid var(--gold)">
+        <span class="link-label">1st Link</span>
+        <span class="display-md text-lg md:text-2xl">5 Brave Hearts</span>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1HD7LI_v-SNzl5pBCPLwq_8zI3piC1uup&sz=w400" alt="Benjamin" loading="lazy"><div class="member-name">Benjamin</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=13dKsNOzX7AwGpLsbIPwnR-l_S6GAVSoD&sz=w400" alt="Cameron" loading="lazy"><div class="member-name">Cameron</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1kcB-rHrHcdaBgwDiLa6lFhk27MnZ4azY&sz=w400" alt="Daniel" loading="lazy"><div class="member-name">Daniel</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1ISJhTk4FqYqxdlVOpg6i0B9PoCpNk0DP&sz=w400" alt="David" loading="lazy"><div class="member-name">David</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1NZE-_hzEsyKJLZbYnqimcd0r0h4rvYLp&sz=w400" alt="Eshaud" loading="lazy"><div class="member-name">Eshaud</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1s01GEh6lrLJvW7WaerMJ2_Hh28I__MEI&sz=w400" alt="Joel" loading="lazy"><div class="member-name">Joel</div></div>
+      </div>
+    </div>
+
+    <!-- 2nd Link -->
+    <div class="mb-20 reveal">
+      <div class="flex items-center gap-4 mb-8 pb-4" style="border-bottom:2px solid var(--gold)">
+        <span class="link-label">2nd Link</span>
+        <span class="display-md text-lg md:text-2xl">DIVine Testiment of Men</span>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1KZE6OqfcSlN0cw1u_HZ1KciwMnTSdm3j&sz=w400" alt="Michael" loading="lazy"><div class="member-name">Michael</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=14mTafDD-WkIbETplxTkUqHD9PNfUXXCu&sz=w400" alt="Saun-Jay" loading="lazy"><div class="member-name">Saun-Jay</div></div>
+      </div>
+    </div>
+
+    <!-- 3rd Link -->
+    <div class="mb-20 reveal">
+      <div class="flex items-center gap-4 mb-8 pb-4" style="border-bottom:2px solid var(--gold)">
+        <span class="link-label">3rd Link</span>
+        <span class="display-md text-lg md:text-2xl">Space Cadets</span>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1HD7LI_v-SNzl5pBCPLwq_8zI3piC1uup&sz=w400" alt="Benjamin" loading="lazy"><div class="member-name">Benjamin</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1uSaeyxFWMqhb4Ta9rvzDrnqWsI1uMO2O&sz=w400" alt="Henry" loading="lazy"><div class="member-name">Henry</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1AHDfLeKndrAWP-CqCWAvtR9TD4MgX81K&sz=w400" alt="Roderick" loading="lazy"><div class="member-name">Roderick</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=101yncQ7opBWu4-nQlFgvb_lxob4QCDyO&sz=w400" alt="Tajae" loading="lazy"><div class="member-name">Tajae</div></div>
+      </div>
+    </div>
+
+    <!-- 4th Link -->
+    <div class="mb-20 reveal">
+      <div class="flex items-center gap-4 mb-8 pb-4" style="border-bottom:2px solid var(--gold)">
+        <span class="link-label">4th Link</span>
+        <span class="display-md text-lg md:text-2xl">U.n.t.i.t.l.e.d</span>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1nPSVA5NgLeO2nmobJAlN5fYnPtQN4VDd&sz=w400" alt="Atish" loading="lazy"><div class="member-name">Atish</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1gu0O0ggCrsHP0e8L_vs0YEFDjIJ3G2nm&sz=w400" alt="Dominique" loading="lazy"><div class="member-name">Dominique</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1b4M0Fs8oE5ycGk1DmQV37rruUc0NahY8&sz=w400" alt="Emmanuel" loading="lazy"><div class="member-name">Emmanuel</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1uSaeyxFWMqhb4Ta9rvzDrnqWsI1uMO2O&sz=w400" alt="Henry" loading="lazy"><div class="member-name">Henry</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=123_2_5fhJq3Uql_GzXwio8nSyb6xRkEX&sz=w400" alt="Jordan" loading="lazy"><div class="member-name">Jordan</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=16GJBFv4V6HCIGyeQu7JcXNGepl8Z2oek&sz=w400" alt="Marcel" loading="lazy"><div class="member-name">Marcel</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1fqigOMzcdz0EC_b7oRIQupQ1z_7ygFUP&sz=w400" alt="Ravie" loading="lazy"><div class="member-name">Ravie</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1AHDfLeKndrAWP-CqCWAvtR9TD4MgX81K&sz=w400" alt="Roderick" loading="lazy"><div class="member-name">Roderick</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1579RJ1zbMWQQUtHI0yijicHkeogXuvam&sz=w400" alt="Ronel" loading="lazy"><div class="member-name">Ronel</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=101yncQ7opBWu4-nQlFgvb_lxob4QCDyO&sz=w400" alt="Tajae" loading="lazy"><div class="member-name">Tajae</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1t1qe0jqvX1G5gmQh0HzDqKZ2brsEwxmD&sz=w400" alt="Tyshaun" loading="lazy"><div class="member-name">Tyshaun</div></div>
+      </div>
+    </div>
+
+    <!-- 5th Link -->
+    <div class="mb-4 reveal">
+      <div class="flex items-center gap-4 mb-8 pb-4" style="border-bottom:2px solid var(--gold)">
+        <span class="link-label">5th Link</span>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1-aNywjR0ylvBw4jclv_CL_3kkIjXt1sL&sz=w400" alt="Angelo" loading="lazy"><div class="member-name">Angelo</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1gTxzMwwCvucp6hV4gPMy7Ix9JuUnykjB&sz=w400" alt="Dennis" loading="lazy"><div class="member-name">Dennis</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1qC4mxg2Jkx-74cbdf49gma9HmsGrdZ1u&sz=w400" alt="Jonathan" loading="lazy"><div class="member-name">Jonathan</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1TBmzncDdrlc_4bH-9e8I4Kccq64HJruE&sz=w400" alt="Marcus" loading="lazy"><div class="member-name">Marcus</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1T7v8rzv6qneON7Uc_vRGvL6YHOXAJq3c&sz=w400" alt="Noah" loading="lazy"><div class="member-name">Noah</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1FU4eLNg29zONQRBrhoo_SnPnHpfLROPq&sz=w400" alt="Ranford" loading="lazy"><div class="member-name">Ranford</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1OpzDwyaaceMhrFZ4mw54Snzg8CniFHke&sz=w400" alt="Tristan" loading="lazy"><div class="member-name">Tristan</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=1BvZ_V0jiH8sWsDnw-OPnn17zwY1VatOf&sz=w400" alt="Wesley" loading="lazy"><div class="member-name">Wesley</div></div>
+        <div class="member-card" style="aspect-ratio:3/4"><img src="https://drive.google.com/thumbnail?id=17yU9EYJG76-Ho7UpNhucq-SDjP4ezula&sz=w400" alt="Woody" loading="lazy"><div class="member-name">Woody</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-10 md:py-20" style="background:var(--ink);color:var(--cream)">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <div class="logo-mark justify-center mb-4 md:mb-6" style="display:inline-flex">
+      <div class="logo-100" style="color:var(--cream)">100</div>
+      <div class="logo-text text-left" style="color:var(--cream)">Black Men<br><span style="color:var(--gold)">Southwest Florida</span></div>
+    </div>
+    <p class="hidden md:block text-sm leading-relaxed max-w-md mx-auto mb-8" style="color:var(--stone-light)">Mentoring Across a Lifetime. A chartered chapter of 100 Black Men of America, Inc.</p>
+    <div class="flex flex-wrap justify-center gap-4 md:gap-8 mb-6 md:mb-10 text-sm">
+      <a href="about.html" class="hover:text-[var(--gold)] transition-colors">About</a>
+      <a href="programs.html" class="hover:text-[var(--gold)] transition-colors">Programs</a>
+      <a href="jr100.html" class="hover:text-[var(--gold)] transition-colors">Jr. 100</a>
+      <a href="collegiate100.html" class="hover:text-[var(--gold)] transition-colors" style="color:var(--gold)">Collegiate 100</a>
+      <a href="events.html" class="hover:text-[var(--gold)] transition-colors">Events</a>
+      <a href="membership.html" class="hover:text-[var(--gold)] transition-colors">Membership</a>
+      <a href="donate.html" class="hover:text-[var(--gold)] transition-colors">Donate</a>
+      <a href="gallery.html" class="hover:text-[var(--gold)] transition-colors">Gallery</a>
+      <a href="contact.html" class="hover:text-[var(--gold)] transition-colors">Contact</a>
+    </div>
+    <a href="https://www.zeffy.com/en-US/donation-form/bridge-builders-leadership-academy-donations-and-sponsorships" target="_blank" class="btn btn-gold mb-10" style="padding:0.75rem 1.5rem;font-size:0.75rem;">Donate Now</a>
+    <div class="pt-8 border-t text-xs" style="border-color:rgba(212,175,55,0.2);color:var(--stone-light)">
+      <p class="mb-2">© 2026 100 Black Men of Southwest Florida, Inc.</p>
+      <p class="opacity-60">A local chapter of <a href="https://100blackmen.org" target="_blank" class="hover:text-[var(--gold)] underline">100 Black Men of America</a> · 501(c)(3) · Tax-Deductible</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 10); });
+  const hamburger = document.getElementById('hamburger');
+  const menuOverlay = document.getElementById('menuOverlay');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    menuOverlay.classList.toggle('open');
+    document.body.style.overflow = menuOverlay.classList.contains('open') ? 'hidden' : '';
+  });
+  document.querySelectorAll('[data-menu-close]').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      menuOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+  (() => {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  })();
+</script>
+</body>
+</html>
