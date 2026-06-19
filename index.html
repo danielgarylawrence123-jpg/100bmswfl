@@ -180,17 +180,21 @@
   }
   .header-inner { position: relative; z-index: 2; }
 
-  /* Christmas - snow falling across full header */
-  [data-theme="christmas"] .header-snowflake {
-    position: absolute;
-    top: -12px;
-    color: rgba(10, 10, 10, 0.55);
-    animation: headerSnowfall linear infinite;
+  /* Christmas - snow falling across full page */
+  .page-snowflake {
+    position: fixed;
+    top: -5vh;
+    pointer-events: none;
+    z-index: 9999;
+    color: rgba(180,210,255,0.85);
+    animation: pageSnowfall linear forwards;
+    user-select: none;
   }
-  @keyframes headerSnowfall {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-    20% { opacity: 1; }
-    100% { transform: translateY(90px) rotate(360deg); opacity: 0; }
+  @keyframes pageSnowfall {
+    0%   { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
+    8%   { opacity: 1; }
+    90%  { opacity: 0.7; }
+    100% { transform: translateY(110vh) rotate(720deg) translateX(30px); opacity: 0; }
   }
   [data-theme="christmas"] .site-header {
     background: linear-gradient(180deg, #f8f5ee 0%, #fdf8ec 100%);
@@ -550,7 +554,7 @@
   <div class="header-theme-layer" id="headerThemeLayer"></div>
   <div class="header-inner max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     <a href="index.html" class="logo-mark">
-      <img src="https://drive.google.com/thumbnail?id=1m1j8Xqi0Onun1s-73zTtdAoNIc3a4ODG&sz=w600" alt="100 Black Men of Southwest Florida" style="height:46px;width:auto;object-fit:contain;">
+      <img src="https://drive.google.com/thumbnail?id=1m1j8Xqi0Onun1s-73zTtdAoNIc3a4ODG&sz=w600" alt="100 Black Men of Southwest Florida" style="height:92px;width:auto;object-fit:contain;">
     </a>
 
     <div class="flex items-center gap-3">
@@ -778,7 +782,7 @@
 <footer class="py-10 md:py-20" style="background: var(--ink); color: var(--cream);">
   <div class="max-w-7xl mx-auto px-6 text-center">
     <div class="flex justify-center mb-6">
-      <img src="https://drive.google.com/thumbnail?id=1ymTrpELHv-KhUDKaK3o33zydNG6uj0a-&sz=w400" alt="100 Black Men of Southwest Florida" style="height:44px;width:auto;object-fit:contain;opacity:0.9;">
+      <img src="https://drive.google.com/thumbnail?id=1ymTrpELHv-KhUDKaK3o33zydNG6uj0a-&sz=w400" alt="100 Black Men of Southwest Florida" style="height:88px;width:auto;object-fit:contain;opacity:0.9;">
     </div>
     <p class="hidden md:block text-sm text-[var(--stone-light)] leading-relaxed max-w-md mx-auto mb-8">
       Mentoring Across a Lifetime. A chartered chapter of 100 Black Men of America, Inc.
@@ -975,23 +979,22 @@
     });
   });
 
-  // Header snow (bigger area than before - full header)
+  // Full-page snow for Christmas theme
   function startHeaderSnow() {
-    for (let i = 0; i < 8; i++) setTimeout(createHeaderSnowflake, i * 400);
-    headerAnimInterval = setInterval(createHeaderSnowflake, 600);
+    for (let i = 0; i < 14; i++) setTimeout(createHeaderSnowflake, i * 300);
+    headerAnimInterval = setInterval(createHeaderSnowflake, 500);
   }
 
   function createHeaderSnowflake() {
     if (body.dataset.theme !== 'christmas') return;
     const flake = document.createElement('div');
-    flake.className = 'header-snowflake';
-    flake.textContent = Math.random() > 0.5 ? '❄' : '❅';
-    flake.style.left = Math.random() * 100 + '%';
-    const duration = 3 + Math.random() * 3;
+    flake.className = 'page-snowflake';
+    flake.textContent = ['❄','❅','❆','✦','*'][Math.floor(Math.random()*5)];
+    flake.style.left = Math.random() * 100 + 'vw';
+    const duration = 6 + Math.random() * 8;
     flake.style.animationDuration = duration + 's';
-    flake.style.fontSize = (0.6 + Math.random() * 0.5) + 'rem';
-    flake.style.opacity = 0.4 + Math.random() * 0.4;
-    headerThemeLayer.appendChild(flake);
+    flake.style.fontSize = (0.5 + Math.random() * 1.2) + 'rem';
+    document.body.appendChild(flake);
     setTimeout(() => flake.remove(), duration * 1000);
   }
 
